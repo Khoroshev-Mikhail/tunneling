@@ -1,5 +1,7 @@
 import ring from "../components/rings/ring";
 
+//Сделать проверку данных Montage на входе, не должен быть раньше Tunneling
+
 let store = {
     state : {
         rings : [
@@ -14,24 +16,36 @@ let store = {
     },
     getSorting(){
         let rings = this.state.rings;
-        let uniqueDates = [];
+        let uniqueDates = [
+            [0,0]
+        ];
+
+        const includeArr = (arr, value) => {
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i][0] == value[0] && arr[i][1] == value[1]){
+                    return true;
+                }
+            }
+        }
+
         for(let i = 0; i < rings.length; i++){
             let newDate = [rings[i].tunneling, rings[i].shiftT];
-            if(!uniqueDates.includes(newDate)){
-                uniqueDates.push(newDate);
+            for(let k = 0; k < uniqueDates.length; k++){
+                if(!includeArr(uniqueDates, newDate)){
+                    uniqueDates.push(newDate);
+                }
             }
             newDate = [rings[i].montage, rings[i].shiftM];
-            if(!uniqueDates.includes(newDate)){
-                uniqueDates.push(newDate);
+            for(let k = 0; k < uniqueDates.length; k++){
+                if(!includeArr(uniqueDates, newDate)){
+                    uniqueDates.push(newDate);
+                }
             }
+            /*newDate = [rings[i].montage, rings[i].shiftM];*/
+ 
         }
         //Добавить смену
         console.log(uniqueDates);
-        let ar1 = [0, 1];
-        let ar2 = [0, 1];
-        if(ar1 == ar2){
-            console.log('ara');
-        }
     }
 }
 
