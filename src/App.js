@@ -12,7 +12,7 @@ function App(props) {
             <th>Монтаж</th>
             <th>A</th>
             <th>K</th>
-            <th>Нагнетание</th>
+            <th>Нагнетание1</th>
           </tr>
           {rings}
         </thead>
