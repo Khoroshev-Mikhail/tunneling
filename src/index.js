@@ -8,14 +8,13 @@ import store from './redux/store';
 let draw = (state)=>{
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state}/>
+      <App state={state} dates={store.getDates()}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
 
 draw(store.getState());
-store.getSorting();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

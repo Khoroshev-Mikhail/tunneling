@@ -1,4 +1,4 @@
-import ring from "../components/rings/ring";
+import ring from "../components/rings/Ring";
 
 //Сделать проверку данных Montage на входе, не должен быть раньше Tunneling
 
@@ -14,7 +14,7 @@ let store = {
     getState(){
         return this.state;
     },
-    getSorting(){
+    getDates(){
         let rings = this.state.rings;
         let uniqueDates = [
             [0,0]
@@ -41,11 +41,10 @@ let store = {
                     uniqueDates.push(newDate);
                 }
             }
-            /*newDate = [rings[i].montage, rings[i].shiftM];*/
  
         }
-        //Добавить смену
-        console.log(uniqueDates);
+        uniqueDates.shift();
+        return uniqueDates;
     }
 }
 
