@@ -2,11 +2,10 @@ import './App.css';
 import Dates from './components/rings/Dates';
 
 function App(props) {
-  let dates = props.dates.map(el => <Dates date={el} />)
-  console.log(props.getRingsByDate([3, 11, 1]))
+  let dates = props.dates.map(el => <Dates date={el} getRingsByDate={props.getRingsByDate}/>)
   return (
     <div className="container">
-      <table>
+      <table className="ara">
         <thead>
           <tr>
             <th>Проходка</th>
@@ -15,9 +14,9 @@ function App(props) {
             <th>K</th>
             <th>Нагнетание</th>
           </tr>
-          {dates}
         </thead>
       </table>
+        {dates}
     </div>
   );
 }

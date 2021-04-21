@@ -1,4 +1,5 @@
 const ring = (props) => {
+    //Разбить на монтаж или проходку
     return (
         <tr>
             <td>{props.id}</td>
