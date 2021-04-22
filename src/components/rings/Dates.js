@@ -11,7 +11,7 @@ const dates = (props) => {
                                                                                                         shiftT={el.shiftT}
                                                                                                         shiftM={el.shiftM}  
                                                                                                         pumping={el.pumping}
-                                                                                                        date={[props.date[0],props.date[1],props.date[2]]}
+                                                                                                        date={props.date}
                                                                                                         />);
     
     return(

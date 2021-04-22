@@ -1,5 +1,3 @@
-import ring from "../components/rings/Ring";
-
 //Сделать проверку данных Montage на входе, не должен быть раньше Tunneling
 
 let store = {
