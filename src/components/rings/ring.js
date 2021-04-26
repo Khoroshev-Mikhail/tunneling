@@ -1,5 +1,5 @@
 const ring = (props) => {
-        if(props.tunneling === props.date && props.montage === props.date){
+    console.log(props.date + '-' + props.tunneling + "-" + props.montage)
             return (
                 <tr>
                     <td>{props.id}</td>
@@ -9,37 +9,7 @@ const ring = (props) => {
                     <td>{props.pumping}</td>
                 </tr>
             )
-        }else if(props.tunneling === props.date && props.montage != props.date){
-            return (
-                <tr>
-                    <td>{props.id}</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>{props.pumping}</td>
-                </tr>
-            )
-        }else if(props.tunneling != props.date && props.montage === props.date){
-            return (
-                <tr>
-                    <td>-</td>
-                    <td>{props.id}</td>
-                    <td>{props.segment}</td>
-                    <td>{props.segment+7}</td>
-                    <td>-</td>
-                </tr>
-            )
-        }else{
-            return (
-                <tr>
-                    <td>{props.id}</td>
-                    <td>{props.id}</td>
-                    <td>{props.segment}</td>
-                    <td>{props.segment+7}</td>
-                    <td>{props.pumping}</td>
-                </tr>
-            )
-        }
+
     }
 
 export default ring;
