@@ -40,4 +40,6 @@
 .ara td,th {
   width: 100px;
   text-align: center;
+  border: 2px solid black;
 }
+.ara {min-width: 1000px;}

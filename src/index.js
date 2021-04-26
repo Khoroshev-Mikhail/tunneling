@@ -4,17 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
-import {getRingsByDate} from './redux/store';
+import {getRingsByDate, getAllDates} from './redux/store';
 
 let draw = (state)=>{
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} dates={store.getDates()} getRingsByDate={getRingsByDate}/>
+      <App state={state} allDate={getAllDates()} getRingsByDate={getRingsByDate}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
-
 draw(store.getState());
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
