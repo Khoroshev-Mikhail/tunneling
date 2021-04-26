@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
-import {getRingsByDate, getAllDates} from './redux/store';
+import {getRingsByDate, getAllDates, checkArrays} from './redux/store';
 
 let draw = (state)=>{
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} allDate={getAllDates()} getRingsByDate={getRingsByDate}/>
+      <App state={state} allDate={getAllDates()} getRingsByDate={getRingsByDate} checkArrays={checkArrays}/>
     </React.StrictMode>,
     document.getElementById('root')
   );

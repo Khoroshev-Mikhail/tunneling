@@ -6,7 +6,14 @@ let store = {
             {id : 1, segment : 227, tunneling : [20, 3, 1], montage : [20, 3, 2], pumping: 15},
             {id : 2, segment : 234, tunneling : [21, 3, 2], montage : [21, 3, 2],  pumping: 13},
             {id : 3, segment : 241, tunneling : [22, 3, 1], montage : [22, 3, 1],  pumping: 14},
-            {id : 4, segment : 241, tunneling : [23, 3, 2], montage : [23, 3, 2],  pumping: 14},
+            {id : 4, segment : 247, tunneling : [23, 3, 2], montage : [23, 3, 2],  pumping: 14},
+            {id : 5, segment : 253, tunneling : [25, 3, 1], montage : [25, 3, 1],  pumping: 14},
+            {id : 6, segment : 266, tunneling : [25, 3, 1], montage : [25, 3, 2],  pumping: 14},
+            {id : 7, segment : 999, tunneling : [25, 3, 2], montage : [26, 3, 1],  pumping: 14},
+            {id : 8, segment : 999, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
+            {id : 9, segment : 478, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
+            {id : 10, segment : 2227, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
+            {id : 11, segment : 2345, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
         ]
     },
     getState(){
@@ -43,6 +50,11 @@ let store = {
         }
         uniqueDates.shift();
         return uniqueDates;
+    },
+    addRing(seg, tun, mon, pump){
+        let newId = state.rings.length+1;
+        let newRing = {id : newId, segment: seg, tunneling : tun, montage: mon, pumping: pump};
+        this.state.rings.push(newRing);
     }
 }
 
@@ -72,4 +84,12 @@ export let getAllDates = () => {
         allDates.push([i, 4, 2]);
     }
     return allDates;
+}
+export let checkArrays = (arr1, arr2) => {
+    if(arr1[0] == arr2[0] && arr1[1] == arr2[1] && arr1[2] == arr2[2]){
+        return true;
+    } else{
+        return false;
+    }
+    
 }

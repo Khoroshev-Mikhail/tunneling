@@ -1,5 +1,7 @@
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -42,4 +44,9 @@
   text-align: center;
   border: 2px solid black;
 }
-.ara {min-width: 1000px;}
+.ara {min-width: 600px;margin: 0 auto;}
+.ara textarea {
+  width: 80%;
+  text-align: center;
+  height: 18px;
+}
