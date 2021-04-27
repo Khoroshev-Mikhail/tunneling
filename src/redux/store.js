@@ -52,9 +52,16 @@ let store = {
         return uniqueDates;
     },
     addRing(seg, tun, mon, pump){
-        let newId = state.rings.length+1;
+        let newId = this.state.rings.length+1;
         let newRing = {id : newId, segment: seg, tunneling : tun, montage: mon, pumping: pump};
         this.state.rings.push(newRing);
+    }, 
+    updateRing(id, seg){
+        this.state.rings[id-1].segment = seg;
+        this.observer();
+    },
+    observer(callback){
+        this.observer = callback;
     }
 }
 

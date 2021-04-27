@@ -2,7 +2,7 @@ import './App.css';
 import Dates from './components/rings/Dates';
 
 function App(props) {
-  let dates = props.allDate.map(el => <Dates date={el} getRingsByDate={props.getRingsByDate} checkArrays={props.checkArrays}/>)
+  let dates = props.allDate.map(el => <Dates date={el} getRingsByDate={props.getRingsByDate} checkArrays={props.checkArrays} updateRing={props.updateRing}/>)
   return (
     <div className="container">
       <table className="ara">

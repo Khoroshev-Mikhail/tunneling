@@ -9,6 +9,7 @@ const dates = (props) => {
                                                                                                         pumping={el.pumping}
                                                                                                         date={props.date}
                                                                                                         checkArrays={props.checkArrays}
+                                                                                                        updateRing={props.updateRing}
     />);
     
     return(

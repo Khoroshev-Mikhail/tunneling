@@ -6,7 +6,7 @@ const ring = (props) => {
                     <td><textarea>{props.id}</textarea></td>
                     <td><textarea>{props.id}</textarea></td>
                     <td><textarea>{props.segment}</textarea></td>
-                    <td><textarea>{props.segment+7}</textarea></td>
+                    <td>{props.segment+7}</td>
                     <td><textarea>{props.pumping}</textarea></td>
                 </tr>
             )
@@ -26,7 +26,7 @@ const ring = (props) => {
                     <td></td>
                     <td><textarea>{props.id}</textarea></td>
                     <td><textarea>{props.segment}</textarea></td>
-                    <td><textarea>{props.segment+7}</textarea></td>
+                    <td>{props.segment+7}</td>
                     <td></td>
                 </tr>
             )
