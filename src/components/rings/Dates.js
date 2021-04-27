@@ -1,4 +1,4 @@
-import Ring from './Ring';
+import Ring from './ring';
 
 
 const dates = (props) => {

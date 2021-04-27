@@ -1,11 +1,17 @@
+import React from "react";
+
 const ring = (props) => {
     let admin = true;
+    let segment = React.createRef();
+    let changeSegment = () => {
+        alert('ara');
+    }
         if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && admin){
             return (
                 <tr>
                     <td><textarea>{props.id}</textarea></td>
                     <td><textarea>{props.id}</textarea></td>
-                    <td><textarea>{props.segment}</textarea></td>
+                    <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
                     <td><textarea>{props.pumping}</textarea></td>
                 </tr>
