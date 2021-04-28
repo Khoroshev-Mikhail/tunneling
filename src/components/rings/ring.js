@@ -15,8 +15,10 @@ const ring = (props) => {
     let pupmingUpdate = () => {
        props.updatePump(props.id, pump.current.value)
     }
+    let ara = () => {
+        alert('ara')
+    }
         if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && admin){
-            console.log(pump)
             return (
                 <tr>
                     <td><textarea ref={idTunneling} value={props.id}></textarea></td>
@@ -24,6 +26,7 @@ const ring = (props) => {
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
+                    <td><button onClick={ara}>+</button></td>
                 </tr>
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && admin){
@@ -34,6 +37,7 @@ const ring = (props) => {
                     <td></td>
                     <td></td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
+                    <td><button>+</button></td>
                 </tr>
             )
         } else if (admin) {
@@ -44,6 +48,7 @@ const ring = (props) => {
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
                     <td></td>
+                    <td><button>+</button></td>
                 </tr>
             )
         }
@@ -55,6 +60,7 @@ const ring = (props) => {
                     <td>{props.segment}</td>
                     <td>{props.segment+7}</td>
                     <td>{props.id-2}-{PumpingMinusTwo()}</td>
+                    <td><button>+</button></td>
                 </tr>
             )
         } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !admin){
@@ -65,6 +71,7 @@ const ring = (props) => {
                     <td></td>
                     <td></td>
                     <td>{props.id-2}-{PumpingMinusTwo()}</td>
+                    <td><button>+</button></td>
                 </tr>
             )
         } else {
@@ -75,6 +82,7 @@ const ring = (props) => {
                     <td>{props.segment}</td>
                     <td>{props.segment+7}</td>
                     <td></td>
+                    <td><button>+</button></td>
                 </tr>
             )
         }

@@ -75,6 +75,9 @@ let store = {
             this.state.rings[id-3].pumping = value;
             this.observer();
         }
+    },
+    insertRing(id, segment, tunneling, montage, pumping){
+        this.state.rings.splice()
     }
 }
 

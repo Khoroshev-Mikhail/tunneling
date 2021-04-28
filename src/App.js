@@ -19,6 +19,7 @@ function App(props) {
             <th>A</th>
             <th>K</th>
             <th>Нагнетание</th>
+            <th></th>
           </tr>
         </thead>
       </table>

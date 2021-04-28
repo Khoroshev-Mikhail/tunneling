@@ -18,7 +18,7 @@ const dates = (props) => {
         <div>
             <table className="ara">
                 <tr>
-                    <td colSpan="5" style={{textAlign: 'center', backgroundColor: 'yellow'}}>{props.date[0]}.{props.date[1]} смена {props.date[2]}</td>
+                    <td colSpan="6" style={{textAlign: 'center', backgroundColor: 'yellow'}}>{props.date[0]}.{props.date[1]} смена {props.date[2]}</td>
                 </tr>
                 {ringsOnDate}
             </table>
