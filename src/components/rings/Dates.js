@@ -10,6 +10,8 @@ const dates = (props) => {
                                                                                                         date={props.date}
                                                                                                         checkArrays={props.checkArrays}
                                                                                                         updateRing={props.updateRing}
+                                                                                                        getPump={props.getPump}
+                                                                                                        updatePump={props.updatePump}
     />);
     
     return(

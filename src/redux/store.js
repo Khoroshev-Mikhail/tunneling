@@ -3,17 +3,17 @@
 let store = {
     state : {
         rings : [
-            {id : 1, segment : 227, tunneling : [20, 3, 1], montage : [20, 3, 2], pumping: 15},
-            {id : 2, segment : 234, tunneling : [21, 3, 2], montage : [21, 3, 2],  pumping: 13},
-            {id : 3, segment : 241, tunneling : [22, 3, 1], montage : [22, 3, 1],  pumping: 14},
-            {id : 4, segment : 247, tunneling : [23, 3, 2], montage : [23, 3, 2],  pumping: 14},
-            {id : 5, segment : 253, tunneling : [25, 3, 1], montage : [25, 3, 1],  pumping: 14},
-            {id : 6, segment : 266, tunneling : [25, 3, 1], montage : [25, 3, 2],  pumping: 14},
-            {id : 7, segment : 999, tunneling : [25, 3, 2], montage : [26, 3, 1],  pumping: 14},
-            {id : 8, segment : 999, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
-            {id : 9, segment : 478, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
-            {id : 10, segment : 2227, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
-            {id : 11, segment : 2345, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 14},
+            {id : 1, segment : 227, tunneling : [20, 3, 1], montage : [20, 3, 2], pumping: 11},
+            {id : 2, segment : 234, tunneling : [21, 3, 2], montage : [21, 3, 2],  pumping: 22},
+            {id : 3, segment : 241, tunneling : [22, 3, 1], montage : [22, 3, 1],  pumping: 33},
+            {id : 4, segment : 247, tunneling : [23, 3, 2], montage : [23, 3, 2],  pumping: 44},
+            {id : 5, segment : 253, tunneling : [25, 3, 1], montage : [25, 3, 1],  pumping: 55},
+            {id : 6, segment : 266, tunneling : [25, 3, 1], montage : [25, 3, 2],  pumping: 66},
+            {id : 7, segment : 999, tunneling : [25, 3, 2], montage : [26, 3, 1],  pumping: 77},
+            {id : 8, segment : 967, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 88},
+            {id : 9, segment : 478, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 99},
+            {id : 10, segment : 2227, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 1010},
+            {id : 11, segment : 2345, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 1111},
         ]
     },
     getState(){
@@ -62,6 +62,19 @@ let store = {
     },
     observer(callback){
         this.observer = callback;
+    },
+    getPump(id){
+        if(id >= 3){
+            return this.state.rings[id-3].pumping;
+        } else {
+            return 'Не было';
+        }
+    },
+    updatePump(id, value){
+        if(id >= 3){
+            this.state.rings[id-3].pumping = value;
+            this.observer();
+        }
     }
 }
 

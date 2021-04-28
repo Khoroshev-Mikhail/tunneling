@@ -9,7 +9,14 @@ import {getRingsByDate, getAllDates, checkArrays} from './redux/store';
 let draw = (state)=>{
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} allDate={getAllDates()} getRingsByDate={getRingsByDate} checkArrays={checkArrays} updateRing={store.updateRing.bind(store)}/>
+      <App state={state} 
+        allDate={getAllDates()} 
+        getRingsByDate={getRingsByDate} 
+        checkArrays={checkArrays} 
+        updateRing={store.updateRing.bind(store)} 
+        getPump={store.getPump.bind(store)} 
+        updatePump={store.updatePump.bind(store)}
+        />
     </React.StrictMode>,
     document.getElementById('root')
   );
