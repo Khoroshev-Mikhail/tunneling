@@ -1,5 +1,3 @@
-//Сделать проверку данных Montage на входе, не должен быть раньше Tunneling
-
 let store = {
     state : {
         rings : [
@@ -56,8 +54,11 @@ let store = {
         let newRing = {id : newId, segment: seg, tunneling : tun, montage: mon, pumping: pump};
         this.state.rings.push(newRing);
     }, 
-    updateRing(id, seg){
-        this.state.rings[id-1].segment = seg;
+    updateRing(id, seg, date){
+        if(!this.state.rings[id-1].montage || this.state.rings[id-1].montage == ''){
+            this.state.rings[id-1].montage = date;
+        }
+        this.state.rings[id-1].segment = +seg;
         this.observer();
     },
     observer(callback){

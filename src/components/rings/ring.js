@@ -7,7 +7,7 @@ const ring = (props) => {
     let idTunneling = React.createRef();
     let pump = React.createRef();
     let changeSegment = () => {
-        props.updateRing(idMontage.current.value, segment.current.value)
+        props.updateRing(props.id, segment.current.value, props.date)
     }
     let PumpingMinusTwo = () =>{
         return props.getPump(props.id);
@@ -29,13 +29,24 @@ const ring = (props) => {
                     <td><button onClick={newRing}>+</button></td>
                 </tr>
             )
+        }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && admin){
+            return (
+                <tr>
+                    <td><textarea>{props.id}</textarea></td>
+                    <td></td>
+                    <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
+                    <td></td>
+                    <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
+                    <td><button onClick={newRing}>+</button></td>
+                </tr>
+            )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && admin){
             return (
                 <tr>
                     <td><textarea>{props.id}</textarea></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
+                    <td>{props.segment+7}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
                     <td><button onClick={newRing}>+</button></td>
                 </tr>
