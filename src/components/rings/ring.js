@@ -32,7 +32,7 @@ const ring = (props) => {
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && admin){
             return (
                 <tr>
-                    <td><textarea>{props.id}</textarea></td>
+                    <td><textarea value={props.id}></textarea></td>
                     <td></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td></td>
@@ -43,7 +43,7 @@ const ring = (props) => {
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && admin){
             return (
                 <tr>
-                    <td><textarea>{props.id}</textarea></td>
+                    <td><textarea value={props.id}></textarea></td>
                     <td></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>

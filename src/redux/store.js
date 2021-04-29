@@ -83,7 +83,6 @@ let store = {
         for(let i = id; i < this.state.rings.length; i++){
             this.state.rings[i].id = this.state.rings[i].id + 1; 
         }
-        console.log(this.state.rings)
         this.observer();
     }
 }
