@@ -12,6 +12,7 @@ const dates = (props) => {
                                                                                                         updateRing={props.updateRing}
                                                                                                         getPump={props.getPump}
                                                                                                         updatePump={props.updatePump}
+                                                                                                        insertRing={props.insertRing}
     />);
     
     return(

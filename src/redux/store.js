@@ -76,8 +76,14 @@ let store = {
             this.observer();
         }
     },
-    insertRing(id, segment, tunneling, montage, pumping){
-        this.state.rings.splice()
+    insertRing(id, date){
+        let newRing =  {id : id, segment : 0, tunneling : date, montage : '',  pumping: ''}
+        this.state.rings.splice(id, 0, newRing);
+        for(let i = id; i < this.state.rings.length; i++){
+            this.state.rings[i].id = this.state.rings[i].id + 1; 
+        }
+        console.log(this.state.rings)
+        this.observer();
     }
 }
 
