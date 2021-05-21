@@ -12,15 +12,14 @@ function App(props) {
     />)
   return (
     <div className="container">
-      <table className="ara">
+      <table className="top-table">
         <thead>
           <tr>
             <th>Проходка</th>
             <th>Монтаж</th>
             <th>A</th>
             <th>K</th>
-            <th>Нагнетание</th>
-            <th></th>
+            <th colSpan="2">Нагнетание</th>
           </tr>
         </thead>
       </table>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const ring = (props) => {
-    let admin = true;
+    let admin = false;
     let segment = React.createRef();
     let idMontage = React.createRef();
     let idTunneling = React.createRef();
