@@ -100,6 +100,14 @@
 .top-date td:nth-child(5), .top-date td:nth-child(6){
   background-color: cadetblue;
 }
-/*.top-date td:nth-child(2), .top-date td:nth-child(3), .top-date td:nth-child(3), .top-date td:nth-child(1){
-  width: 80px;
-}*/
+.top-date textarea{
+  width: 100%;
+  height: 25px;
+  background: none;
+  border: none;
+  padding: 0px;
+  resize: none;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 7px;
+}

@@ -78,10 +78,15 @@ let store = {
         }
     },
     insertRing(id, date){
-        let newRing =  {id : id, segment : 0, tunneling : date, montage : '',  pumping: ''}
-        this.state.rings.splice(id, 0, newRing);
-        for(let i = id; i < this.state.rings.length; i++){
-            this.state.rings[i].id = this.state.rings[i].id + 1; 
+        let newRing;
+        if((!this.state.rings[id-1].montage || this.state.rings[id-1].montage == '') && this.state.rings[id-1].tunneling){
+            this.state.rings[id-1].montage=date;
+        } else{
+            newRing =  {id : id, segment : 0, tunneling : date, montage : '',  pumping: ''}
+            this.state.rings.splice(id, 0, newRing);
+            for(let i = id; i < this.state.rings.length; i++){
+                this.state.rings[i].id = this.state.rings[i].id + 1; 
+            }
         }
         this.observer();
     }

@@ -1,7 +1,7 @@
 import React from "react";
 
 const ring = (props) => {
-    let admin = false;
+    let admin = true;
     let segment = React.createRef();
     let idMontage = React.createRef();
     let idTunneling = React.createRef();
@@ -25,6 +25,7 @@ const ring = (props) => {
                     <td><textarea ref={idMontage} value={props.id}></textarea></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
+                    <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
                     <td><button onClick={newRing}>+</button></td>
                 </tr>
@@ -36,6 +37,7 @@ const ring = (props) => {
                     <td></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td></td>
+                    <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
                     <td><button onClick={newRing}>+</button></td>
                 </tr>
@@ -45,8 +47,9 @@ const ring = (props) => {
                 <tr>
                     <td><textarea value={props.id}></textarea></td>
                     <td></td>
-                    <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
-                    <td>{props.segment+7}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
                     <td><button onClick={newRing}>+</button></td>
                 </tr>
