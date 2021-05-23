@@ -59,6 +59,7 @@ const ring = (props) => {
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
                     <td></td>
+                    <td></td>
                     <td><button onClick={newRing}>+</button></td>
                 </tr>
             )
@@ -70,8 +71,9 @@ const ring = (props) => {
                     <td>{props.id}</td>
                     <td>{props.segment}</td>
                     <td>{props.segment+7}</td>
-                    <td>{props.id-2}-{PumpingMinusTwo()}</td>
-                    <td><button>+</button></td>
+                    <td>{props.id-2}</td>
+                    <td>{PumpingMinusTwo()}</td>
+                    <td></td>
                 </tr>
             )
         } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !admin){
@@ -81,8 +83,9 @@ const ring = (props) => {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>{props.id-2}-{PumpingMinusTwo()}</td>
-                    <td><button>+</button></td>
+                    <td>{props.id-2}</td>
+                    <td>{PumpingMinusTwo()}</td>
+                    <td></td>
                 </tr>
             )
         } else {
@@ -93,7 +96,8 @@ const ring = (props) => {
                     <td>{props.segment}</td>
                     <td>{props.segment+7}</td>
                     <td></td>
-                    <td><button>+</button></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             )
         }

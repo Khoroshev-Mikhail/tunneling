@@ -39,46 +39,67 @@
   }
 }
 
-.ara td,th {
-  width: 80px;
-  text-align: center;
-  border: 2px solid black;
-}
-.ara {
-  min-width: 680px;margin: 0 auto;
-}
-.ara textarea {
-  width: 80%;
-  text-align: center;
-  height: 18px;
-}
 
 .top-table{
-  min-width: 680px; margin: 0 auto;
+  margin: 0 auto;
+  padding: 0px;
 }
 .top-table td, th{
-  width: 80px;
   text-align: center;
   border: 2px solid black;
+  margin: 0px;
 }
-.top-table tr th:nth-child(1){
+.top-table tr:nth-child(1) th:nth-child(1){
   background-color: burlywood;
 }
-.top-table tr th:nth-child(2){
+.top-table tr:nth-child(1) th:nth-child(2){
   background-color: green;
 }
-.top-table tr th:nth-child(3){
-  background-color: green;
+.top-table tr:nth-child(1) th:nth-child(3){
+  background-color: cadetblue;
 }
-.top-table tr th:nth-child(4){
-  background-color: green;
+.top-table tr:nth-child(2) th:nth-child(1){
+  background-color: burlywood;
+  width: 100px;
 }
-.top-table tr th:nth-child(5){
-  background-color: cornflowerblue;
+.top-table tr:nth-child(2) th:nth-child(2), .top-table tr:nth-child(2) th:nth-child(3), .top-table tr:nth-child(2) th:nth-child(4){
+  background-color: green;
+  width: 100px;
+}
+.top-table tr:nth-child(2) th:nth-child(5), .top-table tr:nth-child(2) th:nth-child(6){
+  background-color: cadetblue;
+  width: 100px;
+}
+.top-table th:last-child{
+  width: 100px;
 }
 
 .top-date{
-  min-width: 680px; 
   margin: 0 auto;
   text-align: center;
 }
+
+.top-date td{
+  width: 80px;
+  text-align: center;
+  border: 2px solid black;
+  margin: 0px;
+}
+.top-date tr:nth-child(1) td{
+  min-width: 748px;
+  border: none;
+  font-weight: bold;
+  text-decoration: underline 2px red;
+}
+.top-date tr:nth-child(n+2) td:nth-child(1){
+  background-color: burlywood;
+}
+.top-date td:nth-child(2), .top-date td:nth-child(3), .top-date td:nth-child(4){
+  background-color: green;
+}
+.top-date td:nth-child(5), .top-date td:nth-child(6){
+  background-color: cadetblue;
+}
+/*.top-date td:nth-child(2), .top-date td:nth-child(3), .top-date td:nth-child(3), .top-date td:nth-child(1){
+  width: 80px;
+}*/

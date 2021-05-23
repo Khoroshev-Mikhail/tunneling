@@ -18,7 +18,7 @@ const dates = (props) => {
     return(
         <table className="top-date">
             <tr>
-                <td colSpan="6">{props.date[0]}.{props.date[1]} смена {props.date[2]}</td>
+                <td colSpan="7">{props.date[0]}.{props.date[1]} смена {props.date[2]}</td>
             </tr>
             {ringsOnDate}
         </table>

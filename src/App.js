@@ -16,10 +16,17 @@ function App(props) {
         <thead>
           <tr>
             <th>Проходка</th>
-            <th>Монтаж</th>
+            <th colSpan="3">Монтаж</th>
+            <th colSpan="2">Нагнетание</th>
+            <th rowSpan="2">Админка</th>
+          </tr>
+          <tr>
+            <th>№</th>
+            <th>№</th>
             <th>A</th>
             <th>K</th>
-            <th colSpan="2">Нагнетание</th>
+            <th>№</th>
+            <th>Объём</th>
           </tr>
         </thead>
       </table>
