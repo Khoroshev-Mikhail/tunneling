@@ -39,6 +39,11 @@
   }
 }
 
+.container{
+  width: 1000px;
+  margin: 0 auto;
+}
+
 
 .top-table{
   margin: 0 auto;
@@ -110,4 +115,9 @@
   text-align: center;
   font-size: 18px;
   padding-top: 7px;
+}
+
+.enter-top-date{
+  margin: 0 auto;
+  text-align: center;
 }

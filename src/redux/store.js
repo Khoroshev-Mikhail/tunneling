@@ -12,6 +12,11 @@ let store = {
             {id : 9, segment : 478, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 99},
             {id : 10, segment : 2227, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 1010},
             {id : 11, segment : 2345, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 1111},
+        ],
+        enter : [
+            {id : 1, enterDate : [25, 3, 2], segment : 2345, passport : 1},
+            {id : 2, enterDate : [25, 3, 2], segment : 2227, passport : 2},
+            {id : 3, enterDate : [25, 3, 2], segment : 478, passport : 3},
         ]
     },
     getState(){

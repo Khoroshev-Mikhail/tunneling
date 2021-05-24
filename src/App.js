@@ -1,36 +1,22 @@
 import './App.css';
-import Dates from './components/rings/Dates';
+import Tunneling from './components/Tunneling';
+import Enter from './components/Enter';
 
 function App(props) {
-  let dates = props.allDate.map(el => <Dates date={el} 
+  return ( 
+    /*<Tunneling 
+    state={props.state}
+    allDate={props.allDate}
     getRingsByDate={props.getRingsByDate} 
     checkArrays={props.checkArrays} 
-    updateRing={props.updateRing}
-    getPump={props.getPump}
+    updateRing={props.updateRing} 
+    getPump={props.getPump} 
     updatePump={props.updatePump}
     insertRing={props.insertRing}
-    />)
-  return (
+    />*/
     <div className="container">
-      <table className="top-table">
-        <thead>
-          <tr>
-            <th>Проходка</th>
-            <th colSpan="3">Монтаж</th>
-            <th colSpan="2">Нагнетание</th>
-            <th rowSpan="2">Админка</th>
-          </tr>
-          <tr>
-            <th>№</th>
-            <th>№</th>
-            <th>A</th>
-            <th>K</th>
-            <th>№</th>
-            <th>Объём</th>
-          </tr>
-        </thead>
-      </table>
-      {dates}
+
+      <Enter />
     </div>
   );
 }
