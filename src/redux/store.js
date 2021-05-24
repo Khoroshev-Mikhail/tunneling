@@ -94,6 +94,21 @@ let store = {
             }
         }
         this.observer();
+    },
+    insertNewRing(date){
+        let lastId = false;
+        let rings = this.state.rings;
+        let i = 0;
+        do{
+            rings[i]=
+        }while(!lastId);
+
+
+        /*let newRing =  {id : lastId, segment : 0, tunneling : date, montage : '',  pumping: ''}
+        this.state.rings.splice(lastId, 0, newRing);
+        for(let i = lastId; i < this.state.rings.length; i++){
+            this.state.rings[i].id = this.state.rings[i].id + 1; 
+        }*/
     }
 }
 

@@ -4,7 +4,7 @@ import Enter from './components/Enter';
 
 function App(props) {
   return ( 
-    /*<Tunneling 
+    <Tunneling 
     state={props.state}
     allDate={props.allDate}
     getRingsByDate={props.getRingsByDate} 
@@ -13,11 +13,11 @@ function App(props) {
     getPump={props.getPump} 
     updatePump={props.updatePump}
     insertRing={props.insertRing}
-    />*/
-    <div className="container">
+    />
+    /*<div className="container">
 
       <Enter />
-    </div>
+    </div>*/
   );
 }
 
