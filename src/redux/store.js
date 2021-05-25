@@ -1,3 +1,5 @@
+import ring from "../components/rings/ring";
+
 let store = {
     state : {
         rings : [
@@ -96,19 +98,46 @@ let store = {
         this.observer();
     },
     insertNewRing(date){
-        let lastId = false;
-        let rings = this.state.rings;
-        let i = 0;
-        do{
-            rings[i]=
-        }while(!lastId);
-
-
+        let allDates = getAllDates();
+        for(let i = 0; i < allDates.length; i++){
+            if(checkArrays(allDates[i], date)){
+                return i;
+            }
+        }
         /*let newRing =  {id : lastId, segment : 0, tunneling : date, montage : '',  pumping: ''}
         this.state.rings.splice(lastId, 0, newRing);
         for(let i = lastId; i < this.state.rings.length; i++){
             this.state.rings[i].id = this.state.rings[i].id + 1; 
         }*/
+    },
+    newRingDate(date){
+        let allDates = getAllDates();
+        let lastId = this.insertNewRing(date) - 1;
+        let rings = this.state.rings;
+        for(let i = lastId; i > 0; i--){
+            for(let k=0; k < rings.length; k++){   
+                if(checkArrays(allDates[i], rings[k].tunneling) || checkArrays(allDates[i], rings[k].montage)){
+                    return allDates[i];
+                }
+            }
+        }
+    },
+    insertRingData(date){
+        let arrRings = [];
+        let arr = this.newRingDate(date);
+        let rings = this.state.rings;
+        for(let i = 0; i < rings.length; i++){
+            if(checkArrays(arr, rings[i].tunneling) || checkArrays(arr, rings[i].montage)){
+                arrRings.push(rings[i].id)
+            }
+        }
+        let lastId = 0;
+        for(let k =0; k < arrRings.length; k++){
+            if(arrRings[k] > lastId){
+                lastId = arrRings[k];
+            }
+        }
+        console.log(lastId)
     }
 }
 
@@ -137,6 +166,10 @@ export let getAllDates = () => {
         allDates.push([i, 4, 1]);
         allDates.push([i, 4, 2]);
     }
+    for(let i = 0; i <= 31; i++){
+        allDates.push([i, 5, 1]);
+        allDates.push([i, 5, 2]);
+    }
     return allDates;
 }
 export let checkArrays = (arr1, arr2) => {
@@ -147,3 +180,5 @@ export let checkArrays = (arr1, arr2) => {
     }
     
 }
+
+store.insertRingData([26,3,2]);
