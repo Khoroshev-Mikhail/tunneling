@@ -1,4 +1,5 @@
 import Ring from './ring';
+import Button from './Dates/button'
 
 
 const dates = (props) => {
@@ -15,13 +16,14 @@ const dates = (props) => {
                                                                                                         insertRing={props.insertRing}
     />);
     
-    let newDataRing = () => {
-        props.insertRingData(props.date)
+    let button = <Button insertRingData={props.insertRingData} date={props.date}/>
+    if(ringsOnDate.length > 0){
+        button = '';
     }
     return(
         <table className="top-date">
             <tr>
-                <td colSpan="7">{props.date[0]}.{props.date[1]} смена {props.date[2]} <button onClick={newDataRing}>+</button></td>
+                <td colSpan="7">{props.date[0]}.{props.date[1]} смена {props.date[2]} {button}</td>
             </tr>
             {ringsOnDate}
         </table>
