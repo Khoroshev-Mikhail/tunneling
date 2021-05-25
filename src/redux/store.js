@@ -94,7 +94,7 @@ let store = {
             for(let i = id; i < this.state.rings.length; i++){
                 this.state.rings[i].id = this.state.rings[i].id + 1; 
             }
-        }
+        
         this.observer();
     },
     insertNewRing(date){
@@ -181,4 +181,3 @@ export let checkArrays = (arr1, arr2) => {
     
 }
 
-store.insertRingData([26,3,2]);

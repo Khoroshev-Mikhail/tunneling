@@ -13,6 +13,7 @@ function App(props) {
     getPump={props.getPump} 
     updatePump={props.updatePump}
     insertRing={props.insertRing}
+    insertRingData={props.insertRingData}
     />
     /*<div className="container">
 

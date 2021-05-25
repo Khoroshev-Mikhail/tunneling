@@ -15,10 +15,15 @@ const dates = (props) => {
                                                                                                         insertRing={props.insertRing}
     />);
     
+    let newDataRing = () => {
+        let id = props.insertRingData(props.date) + 1
+        let date = props.date;
+        props.insertRing(id, date)
+    }
     return(
         <table className="top-date">
             <tr>
-                <td colSpan="7">{props.date[0]}.{props.date[1]} смена {props.date[2]}</td>
+                <td colSpan="7">{props.date[0]}.{props.date[1]} смена {props.date[2]} <button onClick={newDataRing}>+</button></td>
             </tr>
             {ringsOnDate}
         </table>

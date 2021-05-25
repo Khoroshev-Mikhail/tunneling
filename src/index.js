@@ -17,6 +17,7 @@ let draw = (state)=>{
         getPump={store.getPump.bind(store)} 
         updatePump={store.updatePump.bind(store)}
         insertRing={store.insertRing.bind(store)}
+        insertRingData={store.insertRingData.bind(store)}
         />
     </React.StrictMode>,
     document.getElementById('root')

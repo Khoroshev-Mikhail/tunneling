@@ -7,6 +7,7 @@ const Tunneling = (props) => {
         getPump={props.getPump}
         updatePump={props.updatePump}
         insertRing={props.insertRing}
+        insertRingData={props.insertRingData}
         />)
     return(
           <div>
