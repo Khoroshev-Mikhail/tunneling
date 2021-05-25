@@ -16,8 +16,9 @@ const dates = (props) => {
     />);
     
     let newDataRing = () => {
-        let id = props.insertRingData(props.date) + 1
+        let id = props.insertRingData(props.date)
         let date = props.date;
+        console.log(id)
         props.insertRing(id, date)
     }
     return(

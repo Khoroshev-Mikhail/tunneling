@@ -137,7 +137,7 @@ let store = {
                 lastId = arrRings[k];
             }
         }
-        console.log(lastId)
+        return lastId
     }
 }
 
