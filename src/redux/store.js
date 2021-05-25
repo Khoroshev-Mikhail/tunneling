@@ -97,34 +97,34 @@ let store = {
         }
         this.observer();
     },
-    insertNewRing(date){
-        let allDates = getAllDates();
-        for(let i = 0; i < allDates.length; i++){
-            if(checkArrays(allDates[i], date)){
-                return i;
+    //Функция срабатывает при нажатии кнопки возле даты, добавляет к дате первое кольцо 
+    insertRingData(date){
+        //
+        let newRingDate = (date) => {
+            //Получаем айди даты куда будем добавлять данные
+            let insertNewRing = (date) =>{
+                let allDates = getAllDates();
+                for(let i = 0; i < allDates.length; i++){
+                    if(checkArrays(allDates[i], date)){
+                        return i;
+                    }
+                }
             }
-        }
-        /*let newRing =  {id : lastId, segment : 0, tunneling : date, montage : '',  pumping: ''}
-        this.state.rings.splice(lastId, 0, newRing);
-        for(let i = lastId; i < this.state.rings.length; i++){
-            this.state.rings[i].id = this.state.rings[i].id + 1; 
-        }*/
-    },
-    newRingDate(date){
-        let allDates = getAllDates();
-        let lastId = this.insertNewRing(date) - 1;
-        let rings = this.state.rings;
-        for(let i = lastId; i > 0; i--){
-            for(let k=0; k < rings.length; k++){   
-                if(checkArrays(allDates[i], rings[k].tunneling) || checkArrays(allDates[i], rings[k].montage)){
-                    return allDates[i];
+            //Ищем в обратном порядке ближайшую дату в которой был монтаж или проходка. (т.к. все даты идут по порядку)
+            let allDates = getAllDates();
+            let lastId = insertNewRing(date) - 1;
+            let rings = this.state.rings;
+            for(let i = lastId; i > 0; i--){
+                for(let k=0; k < rings.length; k++){   
+                    if(checkArrays(allDates[i], rings[k].tunneling) || checkArrays(allDates[i], rings[k].montage)){
+                        return allDates[i];
+                    }
                 }
             }
         }
-    },
-    insertRingData(date){
+        //В найденной в предыдущей функции дате, находим максимальный id кольца (чтобы вставленное кольцо в новой дате было со следующим id)
         let arrRings = [];
-        let arr = this.newRingDate(date);
+        let arr = newRingDate(date);
         let rings = this.state.rings;
         for(let i = 0; i < rings.length; i++){
             if(checkArrays(arr, rings[i].tunneling) || checkArrays(arr, rings[i].montage)){
@@ -137,7 +137,7 @@ let store = {
                 lastId = arrRings[k];
             }
         }
-        return lastId
+        this.insertRing(lastId, date);
     }
 }
 

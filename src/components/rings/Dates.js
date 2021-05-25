@@ -16,10 +16,7 @@ const dates = (props) => {
     />);
     
     let newDataRing = () => {
-        let id = props.insertRingData(props.date)
-        let date = props.date;
-        console.log(id)
-        props.insertRing(id, date)
+        props.insertRingData(props.date)
     }
     return(
         <table className="top-date">
