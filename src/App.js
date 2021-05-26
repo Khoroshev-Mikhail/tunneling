@@ -14,6 +14,7 @@ function App(props) {
     updatePump={props.updatePump}
     insertRing={props.insertRing}
     insertRingData={props.insertRingData}
+    deleteRing={props.deleteRing}
     />
     /*<div className="container">
 

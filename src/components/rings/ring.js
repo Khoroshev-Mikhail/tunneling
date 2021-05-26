@@ -18,6 +18,9 @@ const ring = (props) => {
     let newRing = () => {
         props.insertRing(props.id, props.date)
     }
+    let delRing = () => {
+        props.deleteRing(props.id)
+    }
         if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && admin){
             return (
                 <tr>
@@ -27,7 +30,10 @@ const ring = (props) => {
                     <td>{props.segment+7}</td>
                     <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
-                    <td><button onClick={newRing}>+</button></td>
+                    <td>
+                        <button onClick={newRing}>+</button>
+                        <button onClick={delRing}>-</button>
+                    </td>
                 </tr>
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && admin){
@@ -39,7 +45,10 @@ const ring = (props) => {
                     <td></td>
                     <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
-                    <td><button onClick={newRing}>+</button></td>
+                    <td>
+                        <button onClick={newRing}>+</button>
+                        <button onClick={delRing}>-</button>
+                    </td>
                 </tr>
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && admin){
@@ -51,7 +60,10 @@ const ring = (props) => {
                     <td></td>
                     <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
-                    <td><button onClick={newRing}>+</button></td>
+                    <td>
+                        <button onClick={newRing}>+</button>
+                        <button onClick={delRing}>-</button>
+                    </td>
                 </tr>
             )
         } else if (admin) {
@@ -63,7 +75,10 @@ const ring = (props) => {
                     <td>{props.segment+7}</td>
                     <td></td>
                     <td></td>
-                    <td><button onClick={newRing}>+</button></td>
+                    <td>
+                        <button onClick={newRing}>+</button>
+                        <button onClick={delRing}>-</button>
+                    </td>
                 </tr>
             )
         }

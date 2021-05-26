@@ -14,12 +14,11 @@ const dates = (props) => {
                                                                                                         getPump={props.getPump}
                                                                                                         updatePump={props.updatePump}
                                                                                                         insertRing={props.insertRing}
+                                                                                                        deleteRing={props.deleteRing}
     />);
     
     let button = <Button insertRingData={props.insertRingData} date={props.date}/>
-    if(ringsOnDate.length > 0){
-        button = '';
-    }
+    
     return(
         <table className="top-date">
             <tr>

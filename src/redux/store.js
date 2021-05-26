@@ -138,6 +138,15 @@ let store = {
             }
         }
         this.insertRing(lastId, date);
+    },
+    //Функция удаляет кольцо
+    deleteRing(id){
+        let deleteId = id - 1;
+        this.state.rings.splice(deleteId, 1);
+        for(let i = deleteId; i < this.state.rings.length; i++){
+            this.state.rings[i].id = this.state.rings[i].id - 1; 
+        }
+        this.observer();
     }
 }
 
@@ -180,4 +189,3 @@ export let checkArrays = (arr1, arr2) => {
     }
     
 }
-
