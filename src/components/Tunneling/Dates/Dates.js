@@ -1,9 +1,9 @@
-import Ring from './ring';
-import Button from './Dates/button'
+import Rings from './Rings/Rings';
+import Button from './Button/Button'
 
 
 const dates = (props) => {
-    let ringsOnDate = props.getRingsByDate([props.date[0],props.date[1],props.date[2]]).map(el => <Ring id={el.id}  
+    let ringsOnDate = props.getRingsByDate([props.date[0],props.date[1],props.date[2]]).map(el => <Rings id={el.id}  
                                                                                                         segment={el.segment}
                                                                                                         tunneling={el.tunneling}
                                                                                                         montage={el.montage}

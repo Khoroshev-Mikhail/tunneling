@@ -1,5 +1,3 @@
-import ring from "../components/rings/ring";
-
 let store = {
     state : {
         rings : [

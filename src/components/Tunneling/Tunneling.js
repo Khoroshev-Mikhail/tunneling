@@ -1,4 +1,4 @@
-import Dates from './rings/Dates'
+import Dates from './Dates/Dates'
 const Tunneling = (props) => {
     let dates = props.allDate.map(el => <Dates date={el} 
         getRingsByDate={props.getRingsByDate} 

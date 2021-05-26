@@ -1,6 +1,6 @@
 import React from "react";
 
-const ring = (props) => {
+const Rings = (props) => {
     let admin = true;
     let segment = React.createRef();
     let idMontage = React.createRef();
@@ -122,4 +122,4 @@ const ring = (props) => {
 
     }
 
-export default ring;
+export default Rings;
