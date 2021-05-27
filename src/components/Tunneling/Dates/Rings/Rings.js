@@ -1,10 +1,9 @@
 import React from "react";
+import OneRing from './OneRing/OneRing'
 
 const Rings = (props) => {
     let admin = true;
     let segment = React.createRef();
-    let idMontage = React.createRef();
-    let idTunneling = React.createRef();
     let pump = React.createRef();
     let changeSegment = () => {
         props.updateRing(props.id, segment.current.value, props.date)
@@ -21,20 +20,20 @@ const Rings = (props) => {
     let delRing = () => {
         props.deleteRing(props.id)
     }
+    
         if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && admin){
             return (
-                <tr>
-                    <td><textarea ref={idTunneling} value={props.id}></textarea></td>
-                    <td><textarea ref={idMontage} value={props.id}></textarea></td>
-                    <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
-                    <td>{props.segment+7}</td>
-                    <td>{props.id-2}</td>
-                    <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
-                    <td>
-                        <button onClick={newRing}>+</button>
-                        <button onClick={delRing}>-</button>
-                    </td>
-                </tr>
+                <OneRing 
+                    id={props.id}
+                    segment={props.segment}
+                    date={props.date}
+                    checkArrays={props.checkArrays}
+                    updateRing={props.updateRing}
+                    getPump={props.getPump}
+                    updatePump={props.updatePump}
+                    insertRing={props.insertRing}
+                    deleteRing={props.deleteRing}
+                />
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && admin){
             return (
@@ -70,7 +69,7 @@ const Rings = (props) => {
             return (
                 <tr>
                     <td></td>
-                    <td><textarea ref={idMontage} value={props.id}></textarea></td>
+                    <td><textarea value={props.id}></textarea></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
                     <td></td>
