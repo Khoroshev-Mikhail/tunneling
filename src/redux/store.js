@@ -90,6 +90,9 @@ let store = {
             newRing =  {id : id, segment : 0, tunneling : date, montage : '',  pumping: ''}
             this.state.rings.splice(id, 0, newRing);
             for(let i = id; i < this.state.rings.length; i++){
+                if(this.state.rings[i].pumping){
+                    this.state.rings[i].pumping = this.state.rings[i+1].pumping;
+                }   
                 this.state.rings[i].id = this.state.rings[i].id + 1; 
             }
         }

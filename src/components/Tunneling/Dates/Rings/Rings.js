@@ -43,7 +43,7 @@ const Rings = (props) => {
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td></td>
                     <td>{props.id-2}</td>
-                    <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
+                    <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
                     <td>
                         <button onClick={newRing}>+</button>
                         <button onClick={delRing}>-</button>
@@ -58,7 +58,7 @@ const Rings = (props) => {
                     <td></td>
                     <td></td>
                     <td>{props.id-2}</td>
-                    <td><textarea ref={pump} value={PumpingMinusTwo()}></textarea></td>
+                    <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
                     <td>
                         <button onClick={newRing}>+</button>
                         <button onClick={delRing}>-</button>
