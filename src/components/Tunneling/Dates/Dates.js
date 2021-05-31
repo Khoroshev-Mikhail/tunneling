@@ -1,5 +1,6 @@
 import Rings from './Rings/Rings';
-import Button from './Button/Button'
+import Button from './Buttons/ButtonNewDataRing'
+import css from './Dates.module.css'
 
 
 const dates = (props) => {
@@ -20,7 +21,7 @@ const dates = (props) => {
     let button = <Button insertRingData={props.insertRingData} date={props.date}/>
     
     return(
-        <table className="top-date">
+        <table className={css.topdate}>
             <tr>
                 <td colSpan="7">{props.date[0]}.{props.date[1]} смена {props.date[2]} {button}</td>
             </tr>

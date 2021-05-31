@@ -1,0 +1,35 @@
+
+.toptable{
+    margin: 0 auto;
+    padding: 0px;
+  }
+  .toptable td, th{
+    text-align: center;
+    border: 2px solid black;
+    margin: 0px;
+  }
+  .toptable tr:nth-child(1) th:nth-child(1){
+    background-color: burlywood;
+  }
+  .toptable tr:nth-child(1) th:nth-child(2){
+    background-color: green;
+  }
+  .toptable tr:nth-child(1) th:nth-child(3){
+    background-color: cadetblue;
+  }
+  .toptable tr:nth-child(2) th:nth-child(1){
+    background-color: burlywood;
+    width: 100px;
+  }
+  .toptable tr:nth-child(2) th:nth-child(2), .toptable tr:nth-child(2) th:nth-child(3), .toptable tr:nth-child(2) th:nth-child(4){
+    background-color: green;
+    width: 100px;
+  }
+  .toptable tr:nth-child(2) th:nth-child(5), .toptable tr:nth-child(2) th:nth-child(6){
+    background-color: cadetblue;
+    width: 100px;
+  }
+  .toptable th:last-child{
+    width: 100px;
+  }
+  

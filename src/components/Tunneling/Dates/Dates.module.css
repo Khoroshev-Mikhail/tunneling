@@ -1,0 +1,42 @@
+
+.topdate{
+    margin: 0 auto;
+    text-align: center;
+  }
+  .topdate tr{
+    border-bottom: 1px solid black;
+  }
+  
+  .topdate td{
+    width: 80px;
+    text-align: center;
+    border: 2px solid black;
+    margin: 0px;
+    position: relative;
+  }
+  .topdate tr:nth-child(1) td{
+    min-width: 748px;
+    border: none;
+    font-weight: bold;
+    text-decoration: underline 2px red;
+  }
+  .topdate tr:nth-child(n+2) td:nth-child(1){
+    background-color: burlywood;
+  }
+  .topdate td:nth-child(2), .topdate td:nth-child(3), .topdate td:nth-child(4){
+    background-color: green;
+  }
+  .topdate td:nth-child(5), .topdate td:nth-child(6){
+    background-color: cadetblue;
+  }
+  .topdate textarea{
+    width: 100%;
+    height: 25px;
+    background: none;
+    border: none;
+    padding: 0px;
+    resize: none;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 7px;
+  }

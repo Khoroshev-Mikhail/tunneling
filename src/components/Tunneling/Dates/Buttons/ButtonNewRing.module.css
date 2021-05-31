@@ -1,0 +1,16 @@
+.pluss{
+    background: none;
+    border: 2px dashed black;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    right: -27px;
+    bottom: -13px;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+}
+
+.pluss:hover{
+    background-color: cornflowerblue;
+}

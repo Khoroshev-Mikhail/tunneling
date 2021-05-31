@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonNewRing from "../../Buttons/ButtonNewRing"
 
 const OneRing = (props) => {
     //Ссылки
@@ -15,16 +16,9 @@ const OneRing = (props) => {
     let pupmingUpdate = () => {
        props.updatePump(props.id, pump.current.value)
     }
-    let newRing = () => {
-        props.insertRing(props.id, props.date)
-    }
     let delRing = () => {
         props.deleteRing(props.id)
     }
-
-
-
-
 
     return(
         <tr>
@@ -34,7 +28,7 @@ const OneRing = (props) => {
             <td>{props.segment+7}</td> {/*К Сегмент*/}
             <td>{props.id-2}</td>  {/* № нагнетания */}
             <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td> {/*V нагнетания*/}
-            <td><button onClick={newRing}>+</button><button onClick={delRing}>-</button></td> {/*Кнопки*/}
+            <td>{<ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>}<button onClick={delRing}>-</button></td> {/*Кнопки*/}
         </tr>
     );
 }

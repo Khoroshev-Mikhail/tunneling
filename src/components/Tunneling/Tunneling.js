@@ -1,4 +1,7 @@
 import Dates from './Dates/Dates'
+import css from './Tunneling.module.css'
+
+
 const Tunneling = (props) => {
     let dates = props.allDate.map(el => <Dates date={el} 
         getRingsByDate={props.getRingsByDate} 
@@ -12,7 +15,7 @@ const Tunneling = (props) => {
         />)
     return(
           <div>
-            <table className="top-table">
+            <table className={css.toptable}>
               <thead>
                 <tr>
                   <th>Проходка</th>

@@ -1,6 +1,6 @@
-import css from './button.module.css'
+import css from './ButtonNewDataRing.module.css'
 
-const Button =(props)=>{
+const ButtonNewDataRing =(props)=>{
     let newDataRing = () => {
         props.insertRingData(props.date)
     }
@@ -9,4 +9,4 @@ const Button =(props)=>{
     )
 }
 
-export default Button;
+export default ButtonNewDataRing;
