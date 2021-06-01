@@ -1,5 +1,7 @@
 import React from "react";
 import OneRing from './OneRing/OneRing'
+import ButtonNewRing from "../Buttons/ButtonNewRing"
+import ButtonDelRing from "../Buttons/ButtonDelRing"
 
 const Rings = (props) => {
     let admin = true;
@@ -23,7 +25,7 @@ const Rings = (props) => {
     
         if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && admin){
             return (
-                <OneRing 
+                <OneRing variable={1}
                     id={props.id}
                     segment={props.segment}
                     date={props.date}
@@ -45,8 +47,8 @@ const Rings = (props) => {
                     <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
                     <td>
-                        <button onClick={newRing}>+</button>
-                        <button onClick={delRing}>-</button>
+                        <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
+                        <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
                     </td>
                 </tr>
             )
@@ -60,8 +62,8 @@ const Rings = (props) => {
                     <td>{props.id-2}</td>
                     <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
                     <td>
-                        <button onClick={newRing}>+</button>
-                        <button onClick={delRing}>-</button>
+                        <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
+                        <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
                     </td>
                 </tr>
             )
@@ -75,8 +77,8 @@ const Rings = (props) => {
                     <td></td>
                     <td></td>
                     <td>
-                        <button onClick={newRing}>+</button>
-                        <button onClick={delRing}>-</button>
+                        {<ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>}
+                        <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
                     </td>
                 </tr>
             )

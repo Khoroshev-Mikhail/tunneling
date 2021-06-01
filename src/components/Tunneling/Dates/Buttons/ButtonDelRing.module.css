@@ -1,17 +1,16 @@
-.plus{
+.minus{
     background: none;
-    border: 2px dashed black;
+    border: 2px dashed red;
     color: black;
     cursor: pointer;
     position: absolute;
-    right: -25px;
-    bottom: -12px;
+    right: -52px;
+    bottom: 9px;
     height: 24px;
     width: 24px;
     text-align: center;
 }
 
-.plus:hover{
-    background-color: cornflowerblue;
+.minus:hover{
+    background-color: red;
 }
-
