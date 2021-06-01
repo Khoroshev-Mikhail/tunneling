@@ -98,7 +98,6 @@ let store = {
                         this.state.rings[i].pumping = 0;
                     }
             }
-            console.log(newRing)
         }
         this.observer();
     },
