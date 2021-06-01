@@ -17,19 +17,21 @@ const OneRing = (props) => {
     let pupmingUpdate = () => {
        props.updatePump(props.id, pump.current.value)
     }
-    let delRing = () => {
-        props.deleteRing(props.id)
-    }
 
     return(
         <tr>
-            <td><textarea value={props.id}></textarea></td> {/*Проходка*/}
+            <td>
+                <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
+                <textarea value={props.id}></textarea>
+            </td> {/*Проходка*/}
             <td><textarea value={props.id}></textarea></td> {/*Монтаж*/}
             <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td> {/*А сегмент*/}
             <td>{props.segment+7}</td> {/*К Сегмент*/}
             <td>{props.id-2}</td>  {/* № нагнетания */}
-            <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td> {/*V нагнетания*/}
-            <td>{<ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>}{<ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>}</td> {/*Кнопки*/}
+            <td>
+                <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
+                <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
+            </td> {/*V нагнетания*/}
         </tr>
     );
 }

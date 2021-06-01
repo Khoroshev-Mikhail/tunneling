@@ -16,14 +16,17 @@ const dates = (props) => {
                                                                                                         updatePump={props.updatePump}
                                                                                                         insertRing={props.insertRing}
                                                                                                         deleteRing={props.deleteRing}
+                                                                                                        admin={props.admin}
     />);
-    
-    let button = <Button insertRingData={props.insertRingData} date={props.date}/>
+    let button = '';
+    if(props.admin){
+        button = <Button insertRingData={props.insertRingData} date={props.date}/>
+    }
     
     return(
         <table className={css.topdate}>
             <tr>
-                <td colSpan="7">{props.date[0]}.{props.date[1]} смена {props.date[2]} {button}</td>
+                <td colSpan="6">{props.date[0]}.{props.date[1]} смена {props.date[2]} {button}</td>
             </tr>
             {ringsOnDate}
         </table>

@@ -4,7 +4,7 @@ import ButtonNewRing from "../Buttons/ButtonNewRing"
 import ButtonDelRing from "../Buttons/ButtonDelRing"
 
 const Rings = (props) => {
-    let admin = true;
+    let admin = props.admin;
     let segment = React.createRef();
     let pump = React.createRef();
     let changeSegment = () => {
@@ -15,12 +15,6 @@ const Rings = (props) => {
     }
     let pupmingUpdate = () => {
        props.updatePump(props.id, pump.current.value)
-    }
-    let newRing = () => {
-        props.insertRing(props.id, props.date)
-    }
-    let delRing = () => {
-        props.deleteRing(props.id)
     }
     
         if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && admin){
@@ -40,45 +34,41 @@ const Rings = (props) => {
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && admin){
             return (
                 <tr>
-                    <td><textarea value={props.id}></textarea></td>
+                    <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/><textarea value={props.id}></textarea></td>
                     <td></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td></td>
                     <td>{props.id-2}</td>
-                    <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
                     <td>
+                        <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
                         <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
-                        <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
                     </td>
                 </tr>
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && admin){
             return (
                 <tr>
-                    <td><textarea value={props.id}></textarea></td>
+                    <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/><textarea value={props.id}></textarea></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>{props.id-2}</td>
-                    <td><textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea></td>
                     <td>
+                        <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
                         <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
-                        <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
                     </td>
                 </tr>
             )
         } else if (admin) {
             return (
                 <tr>
-                    <td></td>
+                    <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/></td>
                     <td><textarea value={props.id}></textarea></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
                     <td></td>
-                    <td></td>
                     <td>
-                        {<ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>}
-                        <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
+                        <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
                     </td>
                 </tr>
             )
@@ -92,7 +82,6 @@ const Rings = (props) => {
                     <td>{props.segment+7}</td>
                     <td>{props.id-2}</td>
                     <td>{PumpingMinusTwo()}</td>
-                    <td></td>
                 </tr>
             )
         } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !admin){
@@ -104,7 +93,6 @@ const Rings = (props) => {
                     <td></td>
                     <td>{props.id-2}</td>
                     <td>{PumpingMinusTwo()}</td>
-                    <td></td>
                 </tr>
             )
         } else {
@@ -114,7 +102,6 @@ const Rings = (props) => {
                     <td>{props.id}</td>
                     <td>{props.segment}</td>
                     <td>{props.segment+7}</td>
-                    <td></td>
                     <td></td>
                     <td></td>
                 </tr>

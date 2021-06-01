@@ -19,17 +19,20 @@
   }
   .toptable tr:nth-child(2) th:nth-child(1){
     background-color: burlywood;
-    width: 100px;
+    width: 117px;
   }
   .toptable tr:nth-child(2) th:nth-child(2), .toptable tr:nth-child(2) th:nth-child(3), .toptable tr:nth-child(2) th:nth-child(4){
     background-color: green;
-    width: 100px;
+    width: 117px;
   }
   .toptable tr:nth-child(2) th:nth-child(5), .toptable tr:nth-child(2) th:nth-child(6){
     background-color: cadetblue;
-    width: 100px;
+    width: 117px;
   }
   .toptable th:last-child{
-    width: 100px;
+    width: 117px;
+  }
+  .toptable tr{
+    min-width: 748px;
   }
   

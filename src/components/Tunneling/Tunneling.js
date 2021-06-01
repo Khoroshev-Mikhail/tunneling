@@ -3,7 +3,9 @@ import css from './Tunneling.module.css'
 
 
 const Tunneling = (props) => {
-    let dates = props.allDate.map(el => <Dates date={el} 
+        let admin = true; //Начало админки
+        
+        let dates = props.allDate.map(el => <Dates date={el} 
         getRingsByDate={props.getRingsByDate} 
         checkArrays={props.checkArrays} 
         updateRing={props.updateRing}
@@ -12,6 +14,7 @@ const Tunneling = (props) => {
         insertRing={props.insertRing}
         insertRingData={props.insertRingData}
         deleteRing={props.deleteRing}
+        admin={admin}
         />)
     return(
           <div>
@@ -21,7 +24,6 @@ const Tunneling = (props) => {
                   <th>Проходка</th>
                   <th colSpan="3">Монтаж</th>
                   <th colSpan="2">Нагнетание</th>
-                  <th rowSpan="2">Админка</th>
                 </tr>
                 <tr>
                   <th>№</th>
