@@ -11,12 +11,12 @@ const dates = (props) => {
                                                                                                         pumping={el.pumping}
                                                                                                         date={props.date}
                                                                                                         checkArrays={props.checkArrays}
-                                                                                                        updateRing={props.updateRing}
                                                                                                         getPump={props.getPump}
                                                                                                         updatePump={props.updatePump}
                                                                                                         insertRing={props.insertRing}
                                                                                                         deleteRing={props.deleteRing}
                                                                                                         admin={props.admin}
+                                                                                                        dispatch={props.dispatch}
     />);
     let button = '';
     if(props.admin){

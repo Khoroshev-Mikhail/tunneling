@@ -10,12 +10,12 @@ function App(props) {
           allDate={props.allDate}
           getRingsByDate={props.getRingsByDate} 
           checkArrays={props.checkArrays} 
-          updateRing={props.updateRing} 
           getPump={props.getPump} 
           updatePump={props.updatePump}
           insertRing={props.insertRing}
           insertRingData={props.insertRingData}
           deleteRing={props.deleteRing}
+          dispatch={props.dispatch}
       />
     </div>
   );

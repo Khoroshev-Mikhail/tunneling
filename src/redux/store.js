@@ -82,6 +82,15 @@ let store = {
             this.observer();
         }
     },
+    dispatch(action){
+        if(action.type === 'UPDATE-RING'){
+            if(!this.state.rings[action.id-1].montage || this.state.rings[action.id-1].montage == ''){
+                this.state.rings[action.id-1].montage = action.date;
+            }
+            this.state.rings[action.id-1].segment = +action.seg;
+            this.observer();
+        }
+    },
     //Сделать, чтобы во вставленное кольцо записался пампниг из следующего
     insertRing(id, date){
         let newRing;

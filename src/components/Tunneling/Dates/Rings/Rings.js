@@ -8,7 +8,9 @@ const Rings = (props) => {
     let segment = React.createRef();
     let pump = React.createRef();
     let changeSegment = () => {
-        props.updateRing(props.id, segment.current.value, props.date)
+        let action = {type : 'UPDATE-RING', id : props.id, seg : segment.current.value, date : props.date}
+        //props.updateRing(props.id, segment.current.value, props.date)
+        props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{
         return props.getPump(props.id);
@@ -24,11 +26,11 @@ const Rings = (props) => {
                     segment={props.segment}
                     date={props.date}
                     checkArrays={props.checkArrays}
-                    updateRing={props.updateRing}
                     getPump={props.getPump}
                     updatePump={props.updatePump}
                     insertRing={props.insertRing}
                     deleteRing={props.deleteRing}
+                    dispatch={props.dispatch}
                 />
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && admin){

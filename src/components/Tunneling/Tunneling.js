@@ -8,13 +8,13 @@ const Tunneling = (props) => {
         let dates = props.allDate.map(el => <Dates date={el} 
         getRingsByDate={props.getRingsByDate} 
         checkArrays={props.checkArrays} 
-        updateRing={props.updateRing}
         getPump={props.getPump}
         updatePump={props.updatePump}
         insertRing={props.insertRing}
         insertRingData={props.insertRingData}
         deleteRing={props.deleteRing}
         admin={admin}
+        dispatch={props.dispatch}
         />)
     return(
           <div>

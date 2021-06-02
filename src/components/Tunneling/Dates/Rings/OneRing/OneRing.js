@@ -9,7 +9,8 @@ const OneRing = (props) => {
 
     //Функции
     let changeSegment = () => {
-        props.updateRing(props.id, segment.current.value, props.date)
+        let action = {type : 'UPDATE-RING', id : props.id, seg : segment.current.value, date : props.date}
+        props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{
         return props.getPump(props.id);
