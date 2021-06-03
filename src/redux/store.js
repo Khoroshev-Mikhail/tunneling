@@ -258,5 +258,10 @@ export let checkArrays = (arr1, arr2) => {
     } else{
         return false;
     }
-    
+}
+
+const UPDATE_RING = 'UPDATE-RING';
+
+export const updateRingActionCreator = (id, segment, date) => {
+    return {type : UPDATE_RING, id : id, seg : segment, date : date}
 }

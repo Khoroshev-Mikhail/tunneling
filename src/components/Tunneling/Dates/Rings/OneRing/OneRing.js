@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonNewRing from "../../Buttons/ButtonNewRing"
 import ButtonDelRing from "../../Buttons/ButtonDelRing"
+import { updateRingActionCreator } from "../../../../../redux/store";
 
 const OneRing = (props) => {
     //Ссылки
@@ -9,7 +10,7 @@ const OneRing = (props) => {
 
     //Функции
     let changeSegment = () => {
-        let action = {type : 'UPDATE-RING', id : props.id, seg : segment.current.value, date : props.date}
+        let action = updateRingActionCreator(props.id, segment.current.value, props.date)
         props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{

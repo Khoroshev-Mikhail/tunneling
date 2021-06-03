@@ -4,7 +4,6 @@ import css from './Tunneling.module.css'
 
 const Tunneling = (props) => {
         let admin = true; //Начало админки
-        
         let dates = props.allDate.map(el => <Dates date={el} 
                                                   getRingsByDate={props.getRingsByDate} 
                                                   checkArrays={props.checkArrays} 

@@ -2,13 +2,14 @@ import React from "react";
 import OneRing from './OneRing/OneRing'
 import ButtonNewRing from "../Buttons/ButtonNewRing"
 import ButtonDelRing from "../Buttons/ButtonDelRing"
+import { updateRingActionCreator } from "../../../../redux/store";
 
 const Rings = (props) => {
     let segment = React.createRef();
     let pump = React.createRef();
 
     let changeSegment = () => {
-        let action = {type : 'UPDATE-RING', id : props.id, seg : segment.current.value, date : props.date}
+        let action = updateRingActionCreator(props.id, segment.current.value, props.date)
         props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{
