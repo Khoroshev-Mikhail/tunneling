@@ -4,16 +4,14 @@ import ButtonNewRing from "../Buttons/ButtonNewRing"
 import ButtonDelRing from "../Buttons/ButtonDelRing"
 
 const Rings = (props) => {
-    let admin = props.admin;
     let segment = React.createRef();
     let pump = React.createRef();
+
     let changeSegment = () => {
         let action = {type : 'UPDATE-RING', id : props.id, seg : segment.current.value, date : props.date}
-        //props.updateRing(props.id, segment.current.value, props.date)
         props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{
-        //return props.getPump(props.id);
         let action = {type : 'GET-PUMP', id : props.id}
         return props.dispatch(action)
     }
@@ -22,7 +20,7 @@ const Rings = (props) => {
         props.dispatch(action);
     }
     
-        if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && admin){
+        if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && props.admin){
             return (
                 <OneRing variable={1}
                     id={props.id}
@@ -35,7 +33,7 @@ const Rings = (props) => {
                     dispatch={props.dispatch}
                 />
             )
-        }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && admin){
+        }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && props.admin){
             return (
                 <tr>
                     <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/><textarea value={props.id}></textarea></td>
@@ -49,7 +47,7 @@ const Rings = (props) => {
                     </td>
                 </tr>
             )
-        }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && admin){
+        }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && props.admin){
             return (
                 <tr>
                     <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/><textarea value={props.id}></textarea></td>
@@ -63,7 +61,7 @@ const Rings = (props) => {
                     </td>
                 </tr>
             )
-        } else if (admin) {
+        } else if (props.admin) {
             return (
                 <tr>
                     <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/></td>
@@ -77,7 +75,7 @@ const Rings = (props) => {
                 </tr>
             )
         }
-        else if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && !admin){
+        else if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && !props.admin){
             return (
                 <tr>
                     <td>{props.id}</td>
@@ -88,7 +86,7 @@ const Rings = (props) => {
                     <td>{PumpingMinusTwo()}</td>
                 </tr>
             )
-        } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !admin){
+        } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.admin){
             return (
                 <tr>
                     <td>{props.id}</td>

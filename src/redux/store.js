@@ -27,7 +27,6 @@ let store = {
         let uniqueDates = [
             [0, 0, 0]
         ];
-
         const includeArr = (arr, value) => {
             for(let i = 0; i < arr.length; i++){
                 if(arr[i][0] == value[0] && arr[i][1] == value[1] && arr[i][2] == value[2]){
@@ -35,7 +34,6 @@ let store = {
                 }
             }
         }
-
         for(let i = 0; i < rings.length; i++){
             let newDate = rings[i].tunneling;
             for(let k = 0; k < uniqueDates.length; k++){
@@ -49,7 +47,6 @@ let store = {
                     uniqueDates.push(newDate);
                 }
             }
- 
         }
         uniqueDates.shift();
         return uniqueDates;
@@ -73,7 +70,7 @@ let store = {
         if(action.type === 'UPDATE-RING'){
             if(!this.state.rings[action.id-1].montage || this.state.rings[action.id-1].montage == ''){
                 this.state.rings[action.id-1].montage = action.date;
-            }
+            } 
             this.state.rings[action.id-1].segment = +action.seg;
             this.observer();
         } else if(action.type === 'UPDATE-PUMP'){  
@@ -89,7 +86,7 @@ let store = {
             }
         }
     },
-    //Сделать, чтобы во вставленное кольцо записался пампниг из следующего
+    
     insertRing(id, date){
         let newRing;
         if((!this.state.rings[id-1].montage || this.state.rings[id-1].montage == '') && this.state.rings[id-1].tunneling){

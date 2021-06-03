@@ -18,7 +18,7 @@
     min-width: 748px;
     border: none;
     font-weight: bold;
-    text-decoration: underline 2px red;
+    border-bottom: 2px solid black;
   }
   .topdate tr:nth-child(n+2) td:nth-child(1){
     background-color: burlywood;
