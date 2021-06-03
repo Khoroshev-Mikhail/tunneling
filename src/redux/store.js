@@ -84,6 +84,47 @@ let store = {
             } else {
                 return '-';
             }
+        } else if (action.type === 'INSERT-RING-DATA'){
+
+            let newRingDate = (date) => {
+                //Получаем айди даты куда будем добавлять данные
+                let insertNewRing = (date) =>{
+                    let allDates = getAllDates();
+                    for(let i = 0; i < allDates.length; i++){
+                        if(checkArrays(allDates[i], date)){
+                            return i;
+                        }
+                    }
+                }
+                //Ищем в обратном порядке ближайшую дату в которой был монтаж или проходка. (т.к. все даты идут по порядку)
+                let allDates = getAllDates();
+                let lastId = insertNewRing(date) - 1;
+                let rings = this.state.rings;
+                for(let i = lastId; i > 0; i--){
+                    for(let k=0; k < rings.length; k++){   
+                        if(checkArrays(allDates[i], rings[k].tunneling) || checkArrays(allDates[i], rings[k].montage)){
+                            return allDates[i];
+                        }
+                    }
+                }
+            }
+            
+            //В найденной в предыдущей функции дате, находим максимальный id кольца (чтобы вставленное кольцо в новой дате было со следующим id)
+            let arrRings = [];
+            let arr = newRingDate(action.date);
+            let rings = this.state.rings;
+            for(let i = 0; i < rings.length; i++){
+                if(checkArrays(arr, rings[i].tunneling) || checkArrays(arr, rings[i].montage)){
+                    arrRings.push(rings[i].id)
+                }
+            }
+            let lastId = 0;
+            for(let k =0; k < arrRings.length; k++){
+                if(arrRings[k] > lastId){
+                    lastId = arrRings[k];
+                }
+            }
+            this.insertRing(lastId, action.date);
         }
     },
     

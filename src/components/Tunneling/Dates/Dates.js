@@ -19,7 +19,7 @@ const dates = (props) => {
     />);
     let button = '';
     if(props.admin){
-        button = <Button insertRingData={props.insertRingData} date={props.date}/>
+        button = <Button date={props.date} dispatch={props.dispatch}/>
     }
     
     return(

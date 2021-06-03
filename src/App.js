@@ -12,7 +12,6 @@ function App(props) {
           checkArrays={props.checkArrays} 
           getPump={props.getPump} 
           insertRing={props.insertRing}
-          insertRingData={props.insertRingData}
           deleteRing={props.deleteRing}
           dispatch={props.dispatch}
       />
