@@ -28,49 +28,47 @@ const Rings = (props) => {
                     date={props.date}
                     checkArrays={props.checkArrays}
                     getPump={props.getPump}
-                    insertRing={props.insertRing}
-                    deleteRing={props.deleteRing}
                     dispatch={props.dispatch}
                 />
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && props.admin){
             return (
                 <tr>
-                    <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/><textarea value={props.id}></textarea></td>
+                    <td><ButtonDelRing id={props.id} dispatch={props.dispatch}/><textarea value={props.id}></textarea></td>
                     <td></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td></td>
                     <td>{props.id-2}</td>
                     <td>
                         <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
-                        <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
+                        <ButtonNewRing date={props.date} id={props.id} dispatch={props.dispatch}/>
                     </td>
                 </tr>
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && props.admin){
             return (
                 <tr>
-                    <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/><textarea value={props.id}></textarea></td>
+                    <td><ButtonDelRing id={props.id} dispatch={props.dispatch}/><textarea value={props.id}></textarea></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>{props.id-2}</td>
                     <td>
                         <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
-                        <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
+                        <ButtonNewRing date={props.date} id={props.id} dispatch={props.dispatch}/>
                     </td>
                 </tr>
             )
         } else if (props.admin) {
             return (
                 <tr>
-                    <td><ButtonDelRing deleteRing={props.deleteRing} id={props.id}/></td>
+                    <td><ButtonDelRing id={props.id} dispatch={props.dispatch}/></td>
                     <td><textarea value={props.id}></textarea></td>
                     <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
                     <td>{props.segment+7}</td>
                     <td></td>
                     <td>
-                        <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
+                        <ButtonNewRing date={props.date} id={props.id} dispatch={props.dispatch}/>
                     </td>
                 </tr>
             )

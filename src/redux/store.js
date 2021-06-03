@@ -85,7 +85,6 @@ let store = {
                 return '-';
             }
         } else if (action.type === 'INSERT-RING-DATA'){
-
             let newRingDate = (date) => {
                 //Получаем айди даты куда будем добавлять данные
                 let insertNewRing = (date) =>{
@@ -125,9 +124,32 @@ let store = {
                 }
             }
             this.insertRing(lastId, action.date);
+        } else if(action.type === 'DELETE-RING'){
+            let deleteId = action.id - 1;
+            this.state.rings.splice(deleteId, 1);
+            for(let i = deleteId; i < this.state.rings.length; i++){
+                this.state.rings[i].id = this.state.rings[i].id - 1; 
+            }
+            this.observer();
+        } else if (action.type === 'INSERT-RING'){
+            let newRing;
+            if((!this.state.rings[action.id-1].montage || this.state.rings[action.id-1].montage == '') && this.state.rings[action.id-1].tunneling){
+                this.state.rings[action.id-1].montage=action.date;
+            } else{
+                newRing =  {id : action.id, segment : 0, tunneling : action.date, montage : '',  pumping: ''}
+                this.state.rings.splice(action.id, 0, newRing);
+                for(let i = action.id; i < this.state.rings.length; i++){
+                        this.state.rings[i].id = this.state.rings[i].id + 1;
+                        if(i < this.state.rings.length-1){
+                            this.state.rings[i].pumping = this.state.rings[i+1].pumping
+                        }else{
+                            this.state.rings[i].pumping = 0;
+                        }
+                }
+            }
+            this.observer();
         }
     },
-    
     insertRing(id, date){
         let newRing;
         if((!this.state.rings[id-1].montage || this.state.rings[id-1].montage == '') && this.state.rings[id-1].tunneling){

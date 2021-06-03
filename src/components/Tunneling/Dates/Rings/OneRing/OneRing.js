@@ -24,7 +24,7 @@ const OneRing = (props) => {
     return(
         <tr>
             <td>
-                <ButtonDelRing deleteRing={props.deleteRing} id={props.id}/>
+                <ButtonDelRing id={props.id} dispatch={props.dispatch}/>
                 <textarea value={props.id}></textarea>
             </td> {/*Проходка*/}
             <td><textarea value={props.id}></textarea></td> {/*Монтаж*/}
@@ -33,7 +33,7 @@ const OneRing = (props) => {
             <td>{props.id-2}</td>  {/* № нагнетания */}
             <td>
                 <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
-                <ButtonNewRing insertRing={props.insertRing} date={props.date} id={props.id}/>
+                <ButtonNewRing date={props.date} id={props.id} dispatch={props.dispatch}/>
             </td> {/*V нагнетания*/}
         </tr>
     );

@@ -2,7 +2,8 @@ import css from './ButtonDelRing.module.css'
 
 const ButtonDelRing = (props) => {
     let delRing = () => {
-        props.deleteRing(props.id)
+        let action = {type : 'DELETE-RING', id : props.id}
+        props.dispatch(action)
     }
 
     return(
