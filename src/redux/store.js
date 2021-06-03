@@ -58,13 +58,6 @@ let store = {
         let newId = this.state.rings.length+1;
         let newRing = {id : newId, segment: seg, tunneling : tun, montage: mon, pumping: pump};
         this.state.rings.push(newRing);
-    }, 
-    updateRing(id, seg, date){
-        if(!this.state.rings[id-1].montage || this.state.rings[id-1].montage == ''){
-            this.state.rings[id-1].montage = date;
-        }
-        this.state.rings[id-1].segment = +seg;
-        this.observer();
     },
     observer(callback){
         this.observer = callback;
@@ -73,13 +66,7 @@ let store = {
         if(id >= 3){
             return this.state.rings[id-3].pumping;
         } else {
-            return 'Не было';
-        }
-    },
-    updatePump(id, value){
-        if(id >= 3){
-            this.state.rings[id-3].pumping = value;
-            this.observer();
+            return '-';
         }
     },
     dispatch(action){
@@ -89,6 +76,17 @@ let store = {
             }
             this.state.rings[action.id-1].segment = +action.seg;
             this.observer();
+        } else if(action.type === 'UPDATE-PUMP'){  
+            if(action.id >= 3){
+                this.state.rings[action.id-3].pumping = action.value;
+                this.observer();
+            }
+        } else if (action.type === 'GET-PUMP'){
+            if(action.id >= 3){
+                return this.state.rings[action.id-3].pumping;
+            } else {
+                return '-';
+            }
         }
     },
     //Сделать, чтобы во вставленное кольцо записался пампниг из следующего

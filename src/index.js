@@ -14,7 +14,6 @@ let draw = (state)=>{
         getRingsByDate={getRingsByDate} 
         checkArrays={checkArrays} 
         getPump={store.getPump.bind(store)} 
-        updatePump={store.updatePump.bind(store)}
         insertRing={store.insertRing.bind(store)}
         insertRingData={store.insertRingData.bind(store)}
         deleteRing={store.deleteRing.bind(store)}

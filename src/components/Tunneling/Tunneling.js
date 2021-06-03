@@ -9,7 +9,6 @@ const Tunneling = (props) => {
         getRingsByDate={props.getRingsByDate} 
         checkArrays={props.checkArrays} 
         getPump={props.getPump}
-        updatePump={props.updatePump}
         insertRing={props.insertRing}
         insertRingData={props.insertRingData}
         deleteRing={props.deleteRing}

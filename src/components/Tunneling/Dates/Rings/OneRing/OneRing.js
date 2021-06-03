@@ -13,10 +13,12 @@ const OneRing = (props) => {
         props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{
-        return props.getPump(props.id);
+        let action = {type : 'GET-PUMP', id : props.id}
+        return props.dispatch(action)
     }
     let pupmingUpdate = () => {
-       props.updatePump(props.id, pump.current.value)
+        let action = {type : 'UPDATE-PUMP', id : props.id, value : pump.current.value}
+        props.dispatch(action);
     }
 
     return(

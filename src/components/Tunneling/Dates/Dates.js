@@ -12,7 +12,6 @@ const dates = (props) => {
                                                                                                         date={props.date}
                                                                                                         checkArrays={props.checkArrays}
                                                                                                         getPump={props.getPump}
-                                                                                                        updatePump={props.updatePump}
                                                                                                         insertRing={props.insertRing}
                                                                                                         deleteRing={props.deleteRing}
                                                                                                         admin={props.admin}
