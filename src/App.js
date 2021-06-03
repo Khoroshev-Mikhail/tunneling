@@ -10,7 +10,6 @@ function App(props) {
           allDate={props.allDate}
           getRingsByDate={props.getRingsByDate} 
           checkArrays={props.checkArrays} 
-          getPump={props.getPump} 
           dispatch={props.dispatch}
       />
     </div>

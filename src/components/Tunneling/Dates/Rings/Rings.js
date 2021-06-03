@@ -27,7 +27,6 @@ const Rings = (props) => {
                     segment={props.segment}
                     date={props.date}
                     checkArrays={props.checkArrays}
-                    getPump={props.getPump}
                     dispatch={props.dispatch}
                 />
             )

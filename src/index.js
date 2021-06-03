@@ -13,7 +13,6 @@ let draw = (state)=>{
         allDate={getAllDates()} 
         getRingsByDate={getRingsByDate} 
         checkArrays={checkArrays} 
-        getPump={store.getPump.bind(store)} 
         dispatch={store.dispatch.bind(store)}
         />
     </React.StrictMode>,

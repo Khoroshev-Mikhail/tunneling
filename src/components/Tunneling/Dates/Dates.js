@@ -11,7 +11,6 @@ const dates = (props) => {
                                                                                                         pumping={el.pumping}
                                                                                                         date={props.date}
                                                                                                         checkArrays={props.checkArrays}
-                                                                                                        getPump={props.getPump}
                                                                                                         admin={props.admin}
                                                                                                         dispatch={props.dispatch}
     />);

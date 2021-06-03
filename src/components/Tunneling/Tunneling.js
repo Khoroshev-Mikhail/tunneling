@@ -6,11 +6,10 @@ const Tunneling = (props) => {
         let admin = true; //Начало админки
         
         let dates = props.allDate.map(el => <Dates date={el} 
-        getRingsByDate={props.getRingsByDate} 
-        checkArrays={props.checkArrays} 
-        getPump={props.getPump}
-        admin={admin}
-        dispatch={props.dispatch}
+                                                  getRingsByDate={props.getRingsByDate} 
+                                                  checkArrays={props.checkArrays} 
+                                                  admin={admin}
+                                                  dispatch={props.dispatch}
         />)
     return(
           <div>
