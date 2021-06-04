@@ -1,8 +1,9 @@
+import { insertRingDateActionCreator } from '../../../../redux/store'
 import css from './ButtonNewDataRing.module.css'
 
 const ButtonNewDataRing =(props)=>{
     let newDataRing = () => {
-        let action = {type : 'INSERT-RING-DATA', date : props.date}
+        let action = insertRingDateActionCreator(props.date)
         props.dispatch(action)
     }
     return (

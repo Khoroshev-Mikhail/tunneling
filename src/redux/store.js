@@ -84,7 +84,7 @@ let store = {
             } else {
                 return '-';
             }
-        } else if (action.type === 'INSERT-RING-DATA'){
+        } else if (action.type === 'INSERT-RING-DATE'){
             let newRingDate = (date) => {
                 //Получаем айди даты куда будем добавлять данные
                 let insertNewRing = (date) =>{
@@ -268,4 +268,24 @@ export const updateRingActionCreator = (id, segment, date) => {
 const UPDATE_PUMP = 'UPDATE-PUMP';
 export const updatePumpActionCreator = (id, value) => {
     return {type : UPDATE_PUMP, id : id, value : value}
+}
+
+const GET_PUMP = 'GET-PUMP';
+export const getPumpActionCreator = (id) => {
+    return {type : GET_PUMP, id : id}
+}
+
+const DELETE_RING = 'DELETE-RING';
+export const deleteRingActionCreator = (id) => {
+    return {type : DELETE_RING, id : id}
+}
+
+const INSERT_RING = 'INSERT-RING';
+export const insertRingActionCreator = (id, date) => {
+    return {type : INSERT_RING, id : id, date : date}
+}
+
+const INSERT_RING_DATE = 'INSERT-RING-DATE';
+export const insertRingDateActionCreator = (date) => {
+    return {type : INSERT_RING_DATE, date : date}
 }

@@ -1,8 +1,9 @@
 import css from './ButtonDelRing.module.css'
+import {deleteRingActionCreator} from '../../../../redux/store'
 
 const ButtonDelRing = (props) => {
     let delRing = () => {
-        let action = {type : 'DELETE-RING', id : props.id}
+        let action = deleteRingActionCreator(props.id)
         props.dispatch(action)
     }
 
