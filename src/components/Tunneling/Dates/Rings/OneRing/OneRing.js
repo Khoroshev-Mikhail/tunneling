@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonNewRing from "../../Buttons/ButtonNewRing"
 import ButtonDelRing from "../../Buttons/ButtonDelRing"
-import { updateRingActionCreator } from "../../../../../redux/store";
+import { updatePumpActionCreator, updateRingActionCreator } from "../../../../../redux/store";
 
 const OneRing = (props) => {
     //Ссылки
@@ -18,7 +18,7 @@ const OneRing = (props) => {
         return props.dispatch(action)
     }
     let pupmingUpdate = () => {
-        let action = {type : 'UPDATE-PUMP', id : props.id, value : pump.current.value}
+        let action = updatePumpActionCreator(props.id, pump.current.value)
         props.dispatch(action);
     }
 

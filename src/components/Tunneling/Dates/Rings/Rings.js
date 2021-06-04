@@ -2,7 +2,7 @@ import React from "react";
 import OneRing from './OneRing/OneRing'
 import ButtonNewRing from "../Buttons/ButtonNewRing"
 import ButtonDelRing from "../Buttons/ButtonDelRing"
-import { updateRingActionCreator } from "../../../../redux/store";
+import { updatePumpActionCreator, updateRingActionCreator } from "../../../../redux/store";
 
 const Rings = (props) => {
     let segment = React.createRef();
@@ -17,7 +17,7 @@ const Rings = (props) => {
         return props.dispatch(action)
     }
     let pupmingUpdate = () => {
-        let action = {type : 'UPDATE-PUMP', id : props.id, value : pump.current.value}
+        let action = updatePumpActionCreator(props.id, pump.current.value)
         props.dispatch(action);
     }
     

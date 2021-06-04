@@ -261,7 +261,11 @@ export let checkArrays = (arr1, arr2) => {
 }
 
 const UPDATE_RING = 'UPDATE-RING';
-
 export const updateRingActionCreator = (id, segment, date) => {
     return {type : UPDATE_RING, id : id, seg : segment, date : date}
+}
+
+const UPDATE_PUMP = 'UPDATE-PUMP';
+export const updatePumpActionCreator = (id, value) => {
+    return {type : UPDATE_PUMP, id : id, value : value}
 }
