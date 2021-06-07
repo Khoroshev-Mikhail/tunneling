@@ -23,88 +23,74 @@ const Rings = (props) => {
     
         if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && props.admin){
             return (
-                <OneRing variable={1}
+                <OneRing 
+                    variable={1}
                     id={props.id}
                     segment={props.segment}
                     date={props.date}
-                    checkArrays={props.checkArrays}
                     dispatch={props.dispatch}
                 />
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && props.admin){
             return (
-                <tr>
-                    <td><ButtonDelRing id={props.id} dispatch={props.dispatch}/><textarea value={props.id}></textarea></td>
-                    <td></td>
-                    <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
-                    <td></td>
-                    <td>{props.id-2}</td>
-                    <td>
-                        <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
-                        <ButtonNewRing date={props.date} id={props.id} dispatch={props.dispatch}/>
-                    </td>
-                </tr>
+                <OneRing 
+                    variable={2}
+                    id={props.id}
+                    segment={props.segment}
+                    date={props.date}
+                    dispatch={props.dispatch}
+                />
             )
         }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && props.admin){
             return (
-                <tr>
-                    <td><ButtonDelRing id={props.id} dispatch={props.dispatch}/><textarea value={props.id}></textarea></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>{props.id-2}</td>
-                    <td>
-                        <textarea ref={pump} value={PumpingMinusTwo()} onChange={pupmingUpdate}></textarea>
-                        <ButtonNewRing date={props.date} id={props.id} dispatch={props.dispatch}/>
-                    </td>
-                </tr>
+                <OneRing 
+                    variable={3}
+                    id={props.id}
+                    segment={props.segment}
+                    date={props.date}
+                    dispatch={props.dispatch}
+                />
             )
         } else if (props.admin) {
             return (
-                <tr>
-                    <td><ButtonDelRing id={props.id} dispatch={props.dispatch}/></td>
-                    <td><textarea value={props.id}></textarea></td>
-                    <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td>
-                    <td>{props.segment+7}</td>
-                    <td></td>
-                    <td>
-                        <ButtonNewRing date={props.date} id={props.id} dispatch={props.dispatch}/>
-                    </td>
-                </tr>
+                <OneRing 
+                    variable={4}
+                    id={props.id}
+                    segment={props.segment}
+                    date={props.date}
+                    dispatch={props.dispatch}
+                />
             )
         }
         else if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && !props.admin){
             return (
-                <tr>
-                    <td>{props.id}</td>
-                    <td>{props.id}</td>
-                    <td>{props.segment}</td>
-                    <td>{props.segment+7}</td>
-                    <td>{props.id-2}</td>
-                    <td>{PumpingMinusTwo()}</td>
-                </tr>
+                <OneRing 
+                    variable={5}
+                    id={props.id}
+                    segment={props.segment}
+                    date={props.date}
+                    dispatch={props.dispatch}
+                />
             )
         } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.admin){
             return (
-                <tr>
-                    <td>{props.id}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>{props.id-2}</td>
-                    <td>{PumpingMinusTwo()}</td>
-                </tr>
+                <OneRing 
+                    variable={6}
+                    id={props.id}
+                    segment={props.segment}
+                    date={props.date}
+                    dispatch={props.dispatch}
+                />
             )
         } else {
             return (
-                <tr>
-                    <td></td>
-                    <td>{props.id}</td>
-                    <td>{props.segment}</td>
-                    <td>{props.segment+7}</td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <OneRing 
+                    variable={7}
+                    id={props.id}
+                    segment={props.segment}
+                    date={props.date}
+                    dispatch={props.dispatch}
+                />
             )
         }
 
