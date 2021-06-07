@@ -5,21 +5,6 @@ import ButtonDelRing from "../Buttons/ButtonDelRing"
 import { getPumpActionCreator, updatePumpActionCreator, updateRingActionCreator } from "../../../../redux/store";
 
 const Rings = (props) => {
-    let segment = React.createRef();
-    let pump = React.createRef();
-
-    let changeSegment = () => {
-        let action = updateRingActionCreator(props.id, segment.current.value, props.date)
-        props.dispatch(action)
-    }
-    let PumpingMinusTwo = () =>{
-        let action = getPumpActionCreator(props.id)
-        return props.dispatch(action)
-    }
-    let pupmingUpdate = () => {
-        let action = updatePumpActionCreator(props.id, pump.current.value)
-        props.dispatch(action);
-    }
     let variable;
 
     //В зависимости от условия выдаём строку с данными кольца
