@@ -20,80 +20,35 @@ const Rings = (props) => {
         let action = updatePumpActionCreator(props.id, pump.current.value)
         props.dispatch(action);
     }
-    
-        if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && props.admin){
-            return (
-                <OneRing 
-                    variable={1}
-                    id={props.id}
-                    segment={props.segment}
-                    date={props.date}
-                    dispatch={props.dispatch}
-                />
-            )
-        }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && props.admin){
-            return (
-                <OneRing 
-                    variable={2}
-                    id={props.id}
-                    segment={props.segment}
-                    date={props.date}
-                    dispatch={props.dispatch}
-                />
-            )
-        }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && props.admin){
-            return (
-                <OneRing 
-                    variable={3}
-                    id={props.id}
-                    segment={props.segment}
-                    date={props.date}
-                    dispatch={props.dispatch}
-                />
-            )
-        } else if (props.admin) {
-            return (
-                <OneRing 
-                    variable={4}
-                    id={props.id}
-                    segment={props.segment}
-                    date={props.date}
-                    dispatch={props.dispatch}
-                />
-            )
-        }
-        else if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && !props.admin){
-            return (
-                <OneRing 
-                    variable={5}
-                    id={props.id}
-                    segment={props.segment}
-                    date={props.date}
-                    dispatch={props.dispatch}
-                />
-            )
-        } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.admin){
-            return (
-                <OneRing 
-                    variable={6}
-                    id={props.id}
-                    segment={props.segment}
-                    date={props.date}
-                    dispatch={props.dispatch}
-                />
-            )
-        } else {
-            return (
-                <OneRing 
-                    variable={7}
-                    id={props.id}
-                    segment={props.segment}
-                    date={props.date}
-                    dispatch={props.dispatch}
-                />
-            )
-        }
+    let variable;
 
+    //В зависимости от условия выдаём строку с данными кольца
+    if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && props.admin){
+        variable = 1;
+    }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.segment && props.admin){
+        variable = 2;
+    }  else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && props.admin){
+        variable = 3;
+    } else if (props.admin) {
+        variable = 4;
     }
+    else if(props.checkArrays(props.tunneling, props.date) && props.checkArrays(props.tunneling, props.montage) && !props.admin){
+        variable = 5
+    } else if(props.checkArrays(props.tunneling, props.date) && !props.checkArrays(props.tunneling, props.montage) && !props.admin){
+        variable = 6;
+    } else {
+        variable = 7;
+    }
+
+    return (
+        <OneRing 
+            variable={variable}
+            id={props.id}
+            segment={props.segment}
+            date={props.date}
+            dispatch={props.dispatch}
+        />
+    )
+}
 
 export default Rings;
