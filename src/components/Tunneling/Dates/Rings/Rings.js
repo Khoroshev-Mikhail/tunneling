@@ -1,8 +1,5 @@
 import React from "react";
 import OneRing from './OneRing/OneRing'
-import ButtonNewRing from "../Buttons/ButtonNewRing"
-import ButtonDelRing from "../Buttons/ButtonDelRing"
-import { getPumpActionCreator, updatePumpActionCreator, updateRingActionCreator } from "../../../../redux/store";
 
 const Rings = (props) => {
     let variable;
