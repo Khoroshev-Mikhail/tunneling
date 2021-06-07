@@ -1,3 +1,5 @@
+import ringsReducer from "./ringsReducer";
+
 let store = {
     state : {
         rings : [
@@ -67,86 +69,28 @@ let store = {
         }
     },
     dispatch(action){
-        if(action.type === 'UPDATE-RING'){
-            if(!this.state.rings[action.id-1].montage || this.state.rings[action.id-1].montage == ''){
-                this.state.rings[action.id-1].montage = action.date;
-            } 
-            this.state.rings[action.id-1].segment = +action.seg;
+        if(action.type === 'UPDATE-RING'){ 
+            this.state.rings = ringsReducer(this.state.rings, action);
             this.observer();
         } else if(action.type === 'UPDATE-PUMP'){  
             if(action.id >= 3){
-                this.state.rings[action.id-3].pumping = action.value;
+                this.state.rings = ringsReducer(this.state.rings, action);
                 this.observer();
             }
-        } else if (action.type === 'GET-PUMP'){
+        } else if (action.type === 'GET-PUMP'){ //вывести из диспатч в функцию объекта
             if(action.id >= 3){
                 return this.state.rings[action.id-3].pumping;
             } else {
                 return '-';
             }
         } else if (action.type === 'INSERT-RING-DATE'){
-            let newRingDate = (date) => {
-                //Получаем айди даты куда будем добавлять данные
-                let insertNewRing = (date) =>{
-                    let allDates = getAllDates();
-                    for(let i = 0; i < allDates.length; i++){
-                        if(checkArrays(allDates[i], date)){
-                            return i;
-                        }
-                    }
-                }
-                //Ищем в обратном порядке ближайшую дату в которой был монтаж или проходка. (т.к. все даты идут по порядку)
-                let allDates = getAllDates();
-                let lastId = insertNewRing(date) - 1;
-                let rings = this.state.rings;
-                for(let i = lastId; i > 0; i--){
-                    for(let k=0; k < rings.length; k++){   
-                        if(checkArrays(allDates[i], rings[k].tunneling) || checkArrays(allDates[i], rings[k].montage)){
-                            return allDates[i];
-                        }
-                    }
-                }
-            }
-            
-            //В найденной в предыдущей функции дате, находим максимальный id кольца (чтобы вставленное кольцо в новой дате было со следующим id)
-            let arrRings = [];
-            let arr = newRingDate(action.date);
-            let rings = this.state.rings;
-            for(let i = 0; i < rings.length; i++){
-                if(checkArrays(arr, rings[i].tunneling) || checkArrays(arr, rings[i].montage)){
-                    arrRings.push(rings[i].id)
-                }
-            }
-            let lastId = 0;
-            for(let k =0; k < arrRings.length; k++){
-                if(arrRings[k] > lastId){
-                    lastId = arrRings[k];
-                }
-            }
-            this.insertRing(lastId, action.date);
+            this.state.rings = ringsReducer(this.state.rings, action);
+            this.observer();
         } else if(action.type === 'DELETE-RING'){
-            let deleteId = action.id - 1;
-            this.state.rings.splice(deleteId, 1);
-            for(let i = deleteId; i < this.state.rings.length; i++){
-                this.state.rings[i].id = this.state.rings[i].id - 1; 
-            }
+            this.state.rings = ringsReducer(this.state.rings, action);
             this.observer();
         } else if (action.type === 'INSERT-RING'){
-            let newRing;
-            if((!this.state.rings[action.id-1].montage || this.state.rings[action.id-1].montage == '') && this.state.rings[action.id-1].tunneling){
-                this.state.rings[action.id-1].montage=action.date;
-            } else{
-                newRing =  {id : action.id, segment : 0, tunneling : action.date, montage : '',  pumping: ''}
-                this.state.rings.splice(action.id, 0, newRing);
-                for(let i = action.id; i < this.state.rings.length; i++){
-                        this.state.rings[i].id = this.state.rings[i].id + 1;
-                        if(i < this.state.rings.length-1){
-                            this.state.rings[i].pumping = this.state.rings[i+1].pumping
-                        }else{
-                            this.state.rings[i].pumping = 0;
-                        }
-                }
-            }
+            this.state.rings = ringsReducer(this.state.rings, action);
             this.observer();
         }
     },
@@ -259,6 +203,7 @@ export let checkArrays = (arr1, arr2) => {
         return false;
     }
 }
+
 
 const UPDATE_RING = 'UPDATE-RING';
 export const updateRingActionCreator = (id, segment, date) => {
