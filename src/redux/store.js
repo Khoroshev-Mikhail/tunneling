@@ -69,29 +69,14 @@ let store = {
         }
     },
     dispatch(action){
-        if(action.type === 'UPDATE-RING'){ 
-            this.state.rings = ringsReducer(this.state.rings, action);
-            this.observer();
-        } else if(action.type === 'UPDATE-PUMP'){  
-            if(action.id >= 3){
-                this.state.rings = ringsReducer(this.state.rings, action);
-                this.observer();
-            }
-        } else if (action.type === 'GET-PUMP'){ //вывести из диспатч в функцию объекта
-            if(action.id >= 3){
-                return this.state.rings[action.id-3].pumping;
-            } else {
-                return '-';
-            }
-        } else if (action.type === 'INSERT-RING-DATE'){
-            this.state.rings = ringsReducer(this.state.rings, action);
-            this.observer();
-        } else if(action.type === 'DELETE-RING'){
-            this.state.rings = ringsReducer(this.state.rings, action);
-            this.observer();
-        } else if (action.type === 'INSERT-RING'){
-            this.state.rings = ringsReducer(this.state.rings, action);
-            this.observer();
+        this.state.rings = ringsReducer(this.state.rings, action);
+        this.observer();
+    },
+    getPump(id){
+        if(id >= 3){
+            return this.state.rings[id-3].pumping;
+        } else {
+            return '-';
         }
     },
     insertRing(id, date){
@@ -202,35 +187,4 @@ export let checkArrays = (arr1, arr2) => {
     } else{
         return false;
     }
-}
-
-
-const UPDATE_RING = 'UPDATE-RING';
-export const updateRingActionCreator = (id, segment, date) => {
-    return {type : UPDATE_RING, id : id, seg : segment, date : date}
-}
-
-const UPDATE_PUMP = 'UPDATE-PUMP';
-export const updatePumpActionCreator = (id, value) => {
-    return {type : UPDATE_PUMP, id : id, value : value}
-}
-
-const GET_PUMP = 'GET-PUMP';
-export const getPumpActionCreator = (id) => {
-    return {type : GET_PUMP, id : id}
-}
-
-const DELETE_RING = 'DELETE-RING';
-export const deleteRingActionCreator = (id) => {
-    return {type : DELETE_RING, id : id}
-}
-
-const INSERT_RING = 'INSERT-RING';
-export const insertRingActionCreator = (id, date) => {
-    return {type : INSERT_RING, id : id, date : date}
-}
-
-const INSERT_RING_DATE = 'INSERT-RING-DATE';
-export const insertRingDateActionCreator = (date) => {
-    return {type : INSERT_RING_DATE, date : date}
 }

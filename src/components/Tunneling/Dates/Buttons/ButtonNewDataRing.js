@@ -1,4 +1,4 @@
-import { insertRingDateActionCreator } from '../../../../redux/store'
+import { insertRingDateActionCreator } from '../../../../redux/ringsReducer'
 import css from './ButtonNewDataRing.module.css'
 
 const ButtonNewDataRing =(props)=>{

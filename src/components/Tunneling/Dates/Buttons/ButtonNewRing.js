@@ -1,4 +1,4 @@
-import { insertRingActionCreator } from '../../../../redux/store'
+import { insertRingActionCreator } from '../../../../redux/ringsReducer'
 import css from './ButtonNewRing.module.css'
 
 const ButtonNewRing = (props) =>{

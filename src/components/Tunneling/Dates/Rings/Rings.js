@@ -29,6 +29,7 @@ const Rings = (props) => {
             segment={props.segment}
             date={props.date}
             dispatch={props.dispatch}
+            getPump={props.getPump}
         />
     )
 }

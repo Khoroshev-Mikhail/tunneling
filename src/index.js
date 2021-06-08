@@ -14,6 +14,7 @@ let draw = (state)=>{
         getRingsByDate={getRingsByDate} 
         checkArrays={checkArrays} 
         dispatch={store.dispatch.bind(store)}
+        getPump={store.getPump.bind(store)}
         />
     </React.StrictMode>,
     document.getElementById('root')

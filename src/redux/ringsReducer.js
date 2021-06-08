@@ -1,5 +1,36 @@
 import {checkArrays, getAllDates,} from './store'
 
+
+const UPDATE_RING = 'UPDATE-RING';
+export const updateRingActionCreator = (id, segment, date) => {
+    return {type : UPDATE_RING, id : id, seg : segment, date : date}
+}
+
+const UPDATE_PUMP = 'UPDATE-PUMP';
+export const updatePumpActionCreator = (id, value) => {
+    return {type : UPDATE_PUMP, id : id, value : value}
+}
+
+const GET_PUMP = 'GET-PUMP';
+export const getPumpActionCreator = (id) => {
+    return {type : GET_PUMP, id : id}
+}
+
+const DELETE_RING = 'DELETE-RING';
+export const deleteRingActionCreator = (id) => {
+    return {type : DELETE_RING, id : id}
+}
+
+const INSERT_RING = 'INSERT-RING';
+export const insertRingActionCreator = (id, date) => {
+    return {type : INSERT_RING, id : id, date : date}
+}
+
+const INSERT_RING_DATE = 'INSERT-RING-DATE';
+export const insertRingDateActionCreator = (date) => {
+    return {type : INSERT_RING_DATE, date : date}
+}
+
 const ringsReducer = (state, action) => {
     if(action.type === 'UPDATE-RING'){
         if(!state[action.id-1].montage || state[action.id-1].montage == ''){

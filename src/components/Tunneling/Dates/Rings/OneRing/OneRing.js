@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonNewRing from "../../Buttons/ButtonNewRing"
 import ButtonDelRing from "../../Buttons/ButtonDelRing"
-import { getPumpActionCreator, updatePumpActionCreator, updateRingActionCreator } from "../../../../../redux/store";
+import {updatePumpActionCreator, updateRingActionCreator } from "../../../../../redux/ringsReducer";
 
 const OneRing = (props) => {
     //Ссылки
@@ -14,8 +14,7 @@ const OneRing = (props) => {
         props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{
-        let action = getPumpActionCreator(props.id)
-        return props.dispatch(action)
+        return props.getPump(props.id)
     }
     let pupmingUpdate = () => {
         let action = updatePumpActionCreator(props.id, pump.current.value)
@@ -28,7 +27,7 @@ const OneRing = (props) => {
                     <ButtonDelRing id={props.id} dispatch={props.dispatch}/>
                     <textarea value={props.id}></textarea>
                 </td> {/*Проходка*/}
-                <td><textarea value={props.id}></textarea></td> {/*Монтаж*/}
+                <td>{props.id}</td> {/*Монтаж*/}
                 <td><textarea ref={segment} value={props.segment} onChange={changeSegment}></textarea></td> {/*А сегмент*/}
                 <td>{props.segment+7}</td> {/*К Сегмент*/}
                 <td>{props.id-2}</td>  {/* № нагнетания */}

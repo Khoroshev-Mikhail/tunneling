@@ -1,5 +1,5 @@
 import css from './ButtonDelRing.module.css'
-import {deleteRingActionCreator} from '../../../../redux/store'
+import {deleteRingActionCreator} from '../../../../redux/ringsReducer'
 
 const ButtonDelRing = (props) => {
     let delRing = () => {
