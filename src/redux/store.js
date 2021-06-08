@@ -69,7 +69,7 @@ let store = {
         }
     },
     dispatch(action){
-        this.state.rings = ringsReducer(this.state.rings, action);
+        ringsReducer(this.state.rings, action);
         this.observer();
     },
     getPump(id){

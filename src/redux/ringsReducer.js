@@ -1,37 +1,20 @@
 import {checkArrays, getAllDates,} from './store'
 
+let rings = [
+    {id : 1, segment : 227, tunneling : [20, 3, 1], montage : [20, 3, 2], pumping: 11},
+    {id : 2, segment : 234, tunneling : [21, 3, 2], montage : [21, 3, 2],  pumping: 22},
+    {id : 3, segment : 241, tunneling : [22, 3, 1], montage : [22, 3, 1],  pumping: 33},
+    {id : 4, segment : 247, tunneling : [23, 3, 2], montage : [23, 3, 2],  pumping: 44},
+    {id : 5, segment : 253, tunneling : [25, 3, 1], montage : [25, 3, 1],  pumping: 55},
+    {id : 6, segment : 266, tunneling : [25, 3, 1], montage : [25, 3, 2],  pumping: 66},
+    {id : 7, segment : 999, tunneling : [25, 3, 2], montage : [26, 3, 1],  pumping: 77},
+    {id : 8, segment : 967, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 88},
+    {id : 9, segment : 478, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 99},
+    {id : 10, segment : 2227, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 1010},
+    {id : 11, segment : 2345, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 1111},
+]
 
-const UPDATE_RING = 'UPDATE-RING';
-export const updateRingActionCreator = (id, segment, date) => {
-    return {type : UPDATE_RING, id : id, seg : segment, date : date}
-}
-
-const UPDATE_PUMP = 'UPDATE-PUMP';
-export const updatePumpActionCreator = (id, value) => {
-    return {type : UPDATE_PUMP, id : id, value : value}
-}
-
-const GET_PUMP = 'GET-PUMP';
-export const getPumpActionCreator = (id) => {
-    return {type : GET_PUMP, id : id}
-}
-
-const DELETE_RING = 'DELETE-RING';
-export const deleteRingActionCreator = (id) => {
-    return {type : DELETE_RING, id : id}
-}
-
-const INSERT_RING = 'INSERT-RING';
-export const insertRingActionCreator = (id, date) => {
-    return {type : INSERT_RING, id : id, date : date}
-}
-
-const INSERT_RING_DATE = 'INSERT-RING-DATE';
-export const insertRingDateActionCreator = (date) => {
-    return {type : INSERT_RING_DATE, date : date}
-}
-
-const ringsReducer = (state, action) => {
+const ringsReducer = (state = rings, action) => {
     if(action.type === 'UPDATE-RING'){
         if(!state[action.id-1].montage || state[action.id-1].montage == ''){
             state[action.id-1].montage = action.date;
@@ -124,6 +107,37 @@ const ringsReducer = (state, action) => {
         }
         return state;
     }
+}
+
+
+const UPDATE_RING = 'UPDATE-RING';
+export const updateRingActionCreator = (id, segment, date) => {
+    return {type : UPDATE_RING, id : id, seg : segment, date : date}
+}
+
+const UPDATE_PUMP = 'UPDATE-PUMP';
+export const updatePumpActionCreator = (id, value) => {
+    return {type : UPDATE_PUMP, id : id, value : value}
+}
+
+const GET_PUMP = 'GET-PUMP';
+export const getPumpActionCreator = (id) => {
+    return {type : GET_PUMP, id : id}
+}
+
+const DELETE_RING = 'DELETE-RING';
+export const deleteRingActionCreator = (id) => {
+    return {type : DELETE_RING, id : id}
+}
+
+const INSERT_RING = 'INSERT-RING';
+export const insertRingActionCreator = (id, date) => {
+    return {type : INSERT_RING, id : id, date : date}
+}
+
+const INSERT_RING_DATE = 'INSERT-RING-DATE';
+export const insertRingDateActionCreator = (date) => {
+    return {type : INSERT_RING_DATE, date : date}
 }
 
 export default ringsReducer;

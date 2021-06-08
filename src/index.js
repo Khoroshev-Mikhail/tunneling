@@ -6,10 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import {getRingsByDate, getAllDates, checkArrays} from './redux/store';
 
-let draw = (state)=>{
+let draw = ()=>{
+  debugger
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} 
+      <App 
         allDate={getAllDates()} 
         getRingsByDate={getRingsByDate} 
         checkArrays={checkArrays} 
@@ -20,6 +21,7 @@ let draw = (state)=>{
     document.getElementById('root')
   );
 }
+draw()
 store.observer(draw)
 store.observer();
 // If you want to start measuring performance in your app, pass a function
