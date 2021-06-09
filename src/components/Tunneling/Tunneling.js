@@ -9,6 +9,7 @@ const Tunneling = (props) => {
                                                 checkArrays={props.checkArrays} 
                                                 admin={admin}
                                                 dispatch={props.dispatch}
+                                                state={props.state}
                                                 //getPump={props.getPump}
                                                 />)
   return(

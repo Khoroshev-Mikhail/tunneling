@@ -1,6 +1,6 @@
 import ringsReducer from "./ringsReducer";
 
-let store = {
+/*let store = {
     state : {
         rings : [
             {id : 1, segment : 227, tunneling : [20, 3, 1], montage : [20, 3, 2], pumping: 11},
@@ -153,10 +153,10 @@ let store = {
     }
 }
 
-export default store;
+export default store;*/
 
-export let getRingsByDate = (uniqueDate) => {
-    let rings = store.state.rings;
+export let getRingsByDate = (uniqueDate, state) => {
+    let rings = state;
     let ringsByDate = [];
     for(let i = 0; i < rings.length; i++){
         if(
@@ -191,5 +191,3 @@ export let checkArrays = (arr1, arr2) => {
         return false;
     }
 }
-
-window.store = store;
