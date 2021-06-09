@@ -14,7 +14,8 @@ const OneRing = (props) => {
         props.dispatch(action)
     }
     let PumpingMinusTwo = () =>{
-        return props.getPump(props.id)
+        //return props.getPump(props.id)
+        return 2;
     }
     let pupmingUpdate = () => {
         let action = updatePumpActionCreator(props.id, pump.current.value)

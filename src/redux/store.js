@@ -58,8 +58,8 @@ let store = {
         let newRing = {id : newId, segment: seg, tunneling : tun, montage: mon, pumping: pump};
         this.state.rings.push(newRing);
     },
-    observer(callback){
-        this.observer = callback;
+    subscribe(callback){
+        this.subscribe = callback;
     },
     getPump(id){
         if(id >= 3){
@@ -70,7 +70,7 @@ let store = {
     },
     dispatch(action){
         ringsReducer(this.state.rings, action);
-        this.observer();
+        this.subscribe();
     },
     getPump(id){
         if(id >= 3){
@@ -95,7 +95,7 @@ let store = {
                     }
             }
         }
-        this.observer();
+        this.subscribe();
     },
     //Функция срабатывает при нажатии кнопки возле даты, добавляет к дате первое кольцо 
     insertRingData(date){
@@ -146,7 +146,7 @@ let store = {
         for(let i = deleteId; i < this.state.rings.length; i++){
             this.state.rings[i].id = this.state.rings[i].id - 1; 
         }
-        this.observer();
+        this.subscribe();
     }
 }
 

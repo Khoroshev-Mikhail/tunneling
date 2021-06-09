@@ -11,7 +11,7 @@ function App(props) {
           getRingsByDate={props.getRingsByDate} 
           checkArrays={props.checkArrays} 
           dispatch={props.dispatch}
-          getPump={props.getPump}
+          //getPump={props.getPump}
       />
     </div>
   );

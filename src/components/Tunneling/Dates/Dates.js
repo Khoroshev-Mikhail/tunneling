@@ -13,7 +13,7 @@ const dates = (props) => {
                                                                                                         checkArrays={props.checkArrays}
                                                                                                         admin={props.admin}
                                                                                                         dispatch={props.dispatch}
-                                                                                                        getPump={props.getPump}
+                                                                                                        //getPump={props.getPump}
     />);
     let button = '';
     if(props.admin){
