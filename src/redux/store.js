@@ -58,6 +58,9 @@ let store = {
         let newRing = {id : newId, segment: seg, tunneling : tun, montage: mon, pumping: pump};
         this.state.rings.push(newRing);
     },
+    reRenderEntireTree(){
+        console.log('ara');
+    },
     subscribe(callback){
         this.subscribe = callback;
     },
@@ -188,3 +191,5 @@ export let checkArrays = (arr1, arr2) => {
         return false;
     }
 }
+
+window.store = store;

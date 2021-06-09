@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/redux-store';
-import {getRingsByDate, getAllDates, checkArrays} from './redux/ringsReducer';
+import {getRingsByDate, getAllDates, checkArrays} from './redux/store';
 
 let reRenderEntireTree = (state)=>{
   debugger
@@ -22,7 +22,7 @@ let reRenderEntireTree = (state)=>{
     document.getElementById('root')
   );
 }
-reRenderEntireTree(store.getState())
+reRenderEntireTree(store.getState());
 store.subscribe( () => {
   let state = store.getState();
   reRenderEntireTree(state);

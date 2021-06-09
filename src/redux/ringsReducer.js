@@ -1,6 +1,6 @@
 import {checkArrays, getAllDates,} from './store'
 
-let rings = [
+let initialState = [
     {id : 1, segment : 227, tunneling : [20, 3, 1], montage : [20, 3, 2], pumping: 11},
     {id : 2, segment : 234, tunneling : [21, 3, 2], montage : [21, 3, 2],  pumping: 22},
     {id : 3, segment : 241, tunneling : [22, 3, 1], montage : [22, 3, 1],  pumping: 33},
@@ -14,7 +14,7 @@ let rings = [
     {id : 11, segment : 2345, tunneling : [26, 3, 2], montage : [26, 3, 2],  pumping: 1111},
 ]
 
-const ringsReducer = (state = rings, action) => {
+const ringsReducer = (state = initialState, action) => {
     switch(action.type ){
         case 'UPDATE-RING' :
             if(!state[action.id-1].montage || state[action.id-1].montage == ''){
@@ -26,7 +26,7 @@ const ringsReducer = (state = rings, action) => {
             if(action.id >= 3){
                 state[action.id-3].pumping = action.value;
             }
-            return state
+            return state 
         case 'INSERT-RING-DATE' :
             let newRingDate = (date) => {
                 //Получаем айди даты куда будем добавлять данные
